@@ -8,8 +8,8 @@
 * sublime text 3
 * command-line
 * [markdown] / [Markdown example]
-    * ~ shortcut in mac > alt + ñ + space
-* git / github
+    - ~ shortcut in mac > alt + ñ + space
+* git / github 
 
 <!--references -->
 [markdown]: https://blog.ghost.org/markdown/
