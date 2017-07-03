@@ -7,10 +7,9 @@
 * working tools
 * sublime text 3
 * command-line
-* [markdown] / [Markdown example]
-    - ~ shortcut in mac > alt + ñ + space
+* [markdown] / [Markdown example
 * git
-    * main git commands(init, add, status, commit -m)
+    * some basic git commands(init, add, status, commit -m "meaningful! message", remote add origin, push...)
 
 <!--references -->
 [markdown]: https://blog.ghost.org/markdown/
