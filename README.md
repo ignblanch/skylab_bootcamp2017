@@ -1,7 +1,7 @@
 
 # TODO list
  
-* TODO create *subl* alias in terminal: <a href="https://www.tunnelsup.com/how-to-open-sublime-text-from-the-command-line-using-mac-osx/" target="_blank">Tutorial</a>
+* ~~TODO create *subl* alias in terminal: <a href="https://www.tunnelsup.com/how-to-open-sublime-text-from-the-command-line-using-mac-osx/" target="_blank">Tutorial</a>~~
 
 # SESSION 1
 * working tools
