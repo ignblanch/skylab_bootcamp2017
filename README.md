@@ -10,6 +10,7 @@
 * [markdown] / [Markdown example
 * git
     * some basic git commands(init, add, status, commit -m "meaningful! message", remote add origin, push...)
+    * git config --list
 
 <!--references -->
 [markdown]: https://blog.ghost.org/markdown/
