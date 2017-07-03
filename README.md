@@ -9,7 +9,8 @@
 * command-line
 * [markdown] / [Markdown example]
     - ~ shortcut in mac > alt + ñ + space
-* git / github 
+* git
+    * main git commands(init, add, status, commit -m)
 
 <!--references -->
 [markdown]: https://blog.ghost.org/markdown/
