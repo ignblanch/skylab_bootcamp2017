@@ -11,6 +11,7 @@
 ## SESSION 1
 * working tools
 * sublime text 3
+    - [emmet cheatsheet](https://docs.emmet.io/cheat-sheet/)
 * command-line
 * [markdown] / [Markdown example]
 * git
@@ -22,8 +23,12 @@
         - git add filename.txt / git add --all > add files to staging area
         - git commit -m 'message' > add files to local repo
         - git push > pushes to remote repo
+    * [git Cheatsheets] (http://files.zeroturnaround.com/pdf/zt_git_cheat_sheet.pdf)
 
 ## SESSION 2
+* JS basics
+* JS challenges
+
 
 <!--references -->
 [markdown]: https://blog.ghost.org/markdown/
