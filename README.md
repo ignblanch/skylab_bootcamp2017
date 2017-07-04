@@ -23,7 +23,7 @@
         - git add filename.txt / git add --all > add files to staging area
         - git commit -m 'message' > add files to local repo
         - git push > pushes to remote repo
-    * [git Cheatsheets] (http://files.zeroturnaround.com/pdf/zt_git_cheat_sheet.pdf)
+    * [git Cheatsheets](http://files.zeroturnaround.com/pdf/zt_git_cheat_sheet.pdf)
 
 ## SESSION 2
 * JS basics
