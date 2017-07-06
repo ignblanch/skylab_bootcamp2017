@@ -14,7 +14,7 @@
 * sublime text 3
     - [emmet cheatsheet](https://docs.emmet.io/cheat-sheet/)
 * command-line
-* [markdown] / [Markdown example]
+* [markdown reference] / [Markdown example]
 * git
     * some basic git commands(init, add, status, commit -m "meaningful! message", remote add origin, push...)
     * git config --list
