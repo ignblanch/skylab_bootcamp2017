@@ -1,14 +1,15 @@
 # SKYLAB CODERS BOOTCAMP - SUMMER 2017
 
+##WEEK 1
 
-## TODO list
+### TODO list
  
 * ~~TODO create *subl* alias in terminal: <a href="https://www.tunnelsup.com/how-to-open-sublime-text-from-the-command-line-using-mac-osx/" target="_blank">Tutorial</a>~~
 
-## SLIDES FOR THE COURSE
+### SLIDES FOR THE COURSE
 [slides](https://skylabcoders.github.io/bootcamp-julio2017/)
 
-## SESSION 1
+### SESSION 1
 * working tools
 * sublime text 3
     - [emmet cheatsheet](https://docs.emmet.io/cheat-sheet/)
@@ -25,16 +26,16 @@
         - git push > pushes to remote repo
     * [git Cheatsheets](http://files.zeroturnaround.com/pdf/zt_git_cheat_sheet.pdf)
 
-## SESSION 2
+### SESSION 2
 * JS basics
 * JS challenges
 
-## SESSION 3
+### SESSION 3
 * JS arrays
 * JS arrays challenge
 * [JS Objects](https://github.com/juanmaguitar/javascript-notes/tree/master/markdown-en/05-arrays-objects)
 
-## SESSION 4
+### SESSION 4
 * JS Objects review and practice. Constructors:
     - [Example of Prototyping in constructor](https://skylabcoders.slack.com/files/manuelbarzi/F65BYC2R4/-.txt)
     - [Prototyping and inheritance](https://skylabcoders.slack.com/files/manuelbarzi/F65HKAYSK/-.js)
