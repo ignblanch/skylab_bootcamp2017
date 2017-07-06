@@ -1,6 +1,6 @@
 # SKYLAB CODERS BOOTCAMP - SUMMER 2017
 
-##WEEK 1
+## WEEK 1
 
 ### TODO list
  
