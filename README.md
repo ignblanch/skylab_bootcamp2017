@@ -29,6 +29,11 @@
 * JS basics
 * JS challenges
 
+## SESSION 3
+* JS arrays
+* JS arrays challenge
+* [JS Objects](https://github.com/juanmaguitar/javascript-notes/tree/master/markdown-en/05-arrays-objects)
+
 
 <!--references -->
 [markdown]: https://blog.ghost.org/markdown/
