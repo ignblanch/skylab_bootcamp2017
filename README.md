@@ -34,6 +34,22 @@
 * JS arrays challenge
 * [JS Objects](https://github.com/juanmaguitar/javascript-notes/tree/master/markdown-en/05-arrays-objects)
 
+## SESSION 4
+* JS Objects review and practice. Constructors:
+    - [Example of Prototyping in constructor](https://skylabcoders.slack.com/files/manuelbarzi/F65BYC2R4/-.txt)
+    - [Prototyping and inheritance](https://skylabcoders.slack.com/files/manuelbarzi/F65HKAYSK/-.js)
+* [REGEX](https://github.com/juanmaguitar/javascript-notes/tree/master/markdown-en/08-regular-expressions)
+    - [Examples page](https://lornajane.net/posts/2011/simple-regular-expressions-by-example)
+    - To test regex: 
+        - [Regex 101](https://regex101.com)
+        - [Regexr](http://regexr.com)
+* Hoisting
+* JS challenges(extra)
+* Polyfills - Implement a functionality that is not supported in a previous version or API. 
+    - For example we can provide a randomizer to the Array object or to arguments: [example](https://skylabcoders.slack.com/files/manuelbarzi/F64QD7R6Y/-.js)
+    
+* Review of clossures
+
 
 <!--references -->
 [markdown]: https://blog.ghost.org/markdown/
