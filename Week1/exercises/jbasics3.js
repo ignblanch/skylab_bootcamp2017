@@ -7,10 +7,10 @@ function calculator(op, num1, num2) {
             // break; not necessary because we return and that breaks the switch 
         case 'subtract':
             return num1 - num2;
-            
+
         case 'multiply':
             return num1 * num2;
-            
+
         case 'divide':
             return num1 / num2;
     }
@@ -18,7 +18,7 @@ function calculator(op, num1, num2) {
 
 // Same as before but with a non limited number of args
 function calculator() {
-	//ES6
+    //ES6
     var nums = Array.from(arguments);
     //ES5.1:
     //var nums = Array.prototype.slice.call(arguments);
@@ -63,12 +63,21 @@ function encodeWord(str) {
     var arr = str.split('');
 
     var newArr = arr.map(function(item) {
-        if (item === 'T') return 7;
-        else if (item === 'A') return 4;
-        else if (item === 'S') return 5;
-        else if (item === '0') return 0;
-        else return item;
+        switch (item) {
+            case 'T':
+                return '7';
+            case 'A':
+                return '4';
+
+            case 'S':
+                return '5';
+            case 'O':
+                return '0';
+            default:
+                return item;
+        }
     });
+
     return newArr.join('');
 }
 
@@ -76,19 +85,30 @@ function encodeWord(str) {
 function encodeWordPlus(str) {
     var arr = str.split('');
 
-    var newArr = arr.map(function(item) {
-        if (item === 'T') return 7;
-        else if (item === 'A') return 4;
-        else if (item === 'S') return 5;
-        else if (item === '0') return 0;
-        else return item;
-    });
+    var newArr = arr.map(function(item, index) {
 
-    newArr = arr.map(function(item, index) {
-        if (index > 0 && index % 7 === 0) {
-            return item + Math.floor((Math.random() * 1000))
-        } else {
-            return item }
+        switch (item) {
+            case 'T':
+                item = '7';
+                break;
+            case 'A':
+                item = '4';
+                break;
+            case 'S':
+                item = '5';
+                break;
+            case 'O':
+                item = '0';
+                break;
+            default:
+                item = item;
+        }
+
+        if (index > 0 && index % 6 === 0) {
+            item += Math.floor((Math.random() * 1000));
+        }
+
+        return item;
     });
 
     return newArr.join('');
