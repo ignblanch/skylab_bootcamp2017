@@ -5,9 +5,7 @@
 ### TODO list
  
 * ~~TODO create *subl* alias in terminal: <a href="https://www.tunnelsup.com/how-to-open-sublime-text-from-the-command-line-using-mac-osx/" target="_blank">Tutorial</a>~~
-
-### SLIDES FOR THE COURSE
-[slides](https://skylabcoders.github.io/bootcamp-julio2017/)
+* SLIDES: 46, 47, 49, 50, 51, 65, 66, 67
 
 ### SESSION 1
 * working tools
@@ -64,6 +62,12 @@ function SafeBox(thing) {
 // box('abcd') // wrong pwd
 // box('1234') // 'my dirtiest secret'
 ```
+
+### SESSION 5
+* Unit Testing / TDD
+* Behaviour driven developement: We focus on behavior and not implementation
+* Jasmine
+* KATAS with tests
 
 <!--references -->
 [markdown]: https://blog.ghost.org/markdown/

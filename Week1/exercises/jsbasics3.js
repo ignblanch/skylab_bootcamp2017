@@ -45,7 +45,7 @@ function getFullName(name, surname) {
 
 // Check if value passed is a number
 function isNumber(value) {
-    return !isNaN(value);
+    return typeof(value) === 'number';
 }
 
 // Check if value passed is a string
@@ -79,6 +79,12 @@ function encodeWord(str) {
     });
 
     return newArr.join('');
+}
+
+// Same as before with regex
+function encodeWord(word){
+	var wEncoded = word.replace(/T/gi,7).replace(/A/gi,4).replace(/S/gi,5).replace(/O/gi,0);
+	return wEncoded;
 }
 
 // Same as previous but adding a random number every 7 chars
