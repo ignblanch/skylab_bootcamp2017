@@ -60,7 +60,8 @@ Animal.prototype.heal = function() {
 };
 ```
 
-    
+    - Prototyping and inheritance:
+       
 ```javascript
 // prototyping inheritance
 
