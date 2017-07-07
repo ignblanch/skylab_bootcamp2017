@@ -59,7 +59,6 @@ Animal.prototype.heal = function() {
     console.log('healing...');
 };
 ```
-
     - Prototyping and inheritance:
     
 ```javascript
