@@ -35,8 +35,75 @@
 
 ### SESSION 4
 * JS Objects review and practice. Constructors:
-    - [Example of Prototyping in constructor](https://skylabcoders.slack.com/files/manuelbarzi/F65BYC2R4/-.txt)
-    - [Prototyping and inheritance](https://skylabcoders.slack.com/files/manuelbarzi/F65HKAYSK/-.js)
+    - Example of Prototyping in constructor:
+```javascript
+// clean prototyping
+
+function Animal(type, name) {
+    this.setType(type);
+    this.setName(name);
+}
+Animal.prototype.setType = function(type) {
+    this._type = type;
+};
+Animal.prototype.getType = function() {
+    return this._type;
+};
+Animal.prototype.setName = function(name) {
+    this._name = name;
+};
+Animal.prototype.getName = function() {
+    return this._name;
+};
+Animal.prototype.heal = function() {
+    console.log('healing...');
+};
+```
+    - Prototyping and inheritance:
+```javascript
+// prototyping inheritance
+
+function Animal(species, name) {
+    this.setSpecies(species);
+    this.setName(name);
+}
+Animal.prototype.setSpecies = function(species) {
+    this._species = species;
+};
+Animal.prototype.getSpecies = function() {
+    return this._species;
+};
+Animal.prototype.setName = function(name) {
+    this._name = name;
+};
+Animal.prototype.getName = function() {
+    return this._name;
+};
+Animal.prototype.heal = function() {
+    console.log('healing...');
+};
+Animal.prototype.eat = function () {
+    console.log('eating...');
+};
+Animal.prototype.sleep = function() {
+    console.log('Zzzz');
+};
+
+
+function Tiger(name, speed) {
+    Animal.call(this, 'tiger', name);
+    this.setSpeed(speed);
+}
+
+Tiger.prototype = new Animal();
+Tiger.prototype.setSpeed = function(speed) {
+    this._speed = speed;
+};
+Tiger.prototype.getSpeed = function() {
+    return this._speed;
+};
+```
+
 * [REGEX](https://github.com/juanmaguitar/javascript-notes/tree/master/markdown-en/08-regular-expressions)
     - [Examples page](https://lornajane.net/posts/2011/simple-regular-expressions-by-example)
     - To test regex: 
