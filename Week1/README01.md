@@ -113,8 +113,19 @@ Tiger.prototype.getSpeed = function() {
 * Hoisting
 * JS challenges(extra)
 * Polyfills - Implement a functionality that is not supported in a previous version or API. 
-    - For example we can provide a randomizer to the Array object or to arguments: [example](https://skylabcoders.slack.com/files/manuelbarzi/F64QD7R6Y/-.js)
-    
+    - For example we can provide a randomizer to the Array object or to arguments: 
+```javascript
+// polyfills
+
+Array.prototype.random = function random() {
+    return this[Math.floor(Math.random() * this.length)];
+}
+
+function randomArg() {
+     return Array.prototype.random.call(arguments);
+}
+```
+ 
 * Review of clossures. Example:
 ```javascript
 function SafeBox(thing) {
