@@ -5,7 +5,8 @@
 ### TODO list
  
 * ~~TODO create *subl* alias in terminal: <a href="https://www.tunnelsup.com/how-to-open-sublime-text-from-the-command-line-using-mac-osx/" target="_blank">Tutorial</a>~~
-* SLIDES: 46, 47, 49, 50, 51, 65, 66, 67
+* SLIDES: 46, 47, 49, 50, 51, 
+* KATAS with tests: ~~65, 66~~, 67
 
 ### SESSION 1
 * working tools
