@@ -2,12 +2,6 @@
 
 ## WEEK 1
 
-### TODO list
- 
-* ~~TODO create *subl* alias in terminal: <a href="https://www.tunnelsup.com/how-to-open-sublime-text-from-the-command-line-using-mac-osx/" target="_blank">Tutorial</a>~~
-* SLIDES: 46, 47, 49, 50, 51, 
-* KATAS with tests: ~~65, 66~~, 67
-
 ### SESSION 1
 * working tools
 * sublime text 3
@@ -62,50 +56,50 @@ Animal.prototype.heal = function() {
 ```
 
     - Prototyping and inheritance:
-       
-```javascript
-// prototyping inheritance
+      
+    ```javascript
+    // prototyping inheritance
 
-function Animal(species, name) {
-    this.setSpecies(species);
-    this.setName(name);
-}
-Animal.prototype.setSpecies = function(species) {
-    this._species = species;
-};
-Animal.prototype.getSpecies = function() {
-    return this._species;
-};
-Animal.prototype.setName = function(name) {
-    this._name = name;
-};
-Animal.prototype.getName = function() {
-    return this._name;
-};
-Animal.prototype.heal = function() {
-    console.log('healing...');
-};
-Animal.prototype.eat = function () {
-    console.log('eating...');
-};
-Animal.prototype.sleep = function() {
-    console.log('Zzzz');
-};
+    function Animal(species, name) {
+        this.setSpecies(species);
+        this.setName(name);
+    }
+    Animal.prototype.setSpecies = function(species) {
+        this._species = species;
+    };
+    Animal.prototype.getSpecies = function() {
+        return this._species;
+    };
+    Animal.prototype.setName = function(name) {
+        this._name = name;
+    };
+    Animal.prototype.getName = function() {
+        return this._name;
+    };
+    Animal.prototype.heal = function() {
+        console.log('healing...');
+    };
+    Animal.prototype.eat = function () {
+        console.log('eating...');
+    };
+    Animal.prototype.sleep = function() {
+        console.log('Zzzz');
+    };
 
 
-function Tiger(name, speed) {
-    Animal.call(this, 'tiger', name);
-    this.setSpeed(speed);
-}
+    function Tiger(name, speed) {
+        Animal.call(this, 'tiger', name);
+        this.setSpeed(speed);
+    }
 
-Tiger.prototype = new Animal();
-Tiger.prototype.setSpeed = function(speed) {
-    this._speed = speed;
-};
-Tiger.prototype.getSpeed = function() {
-    return this._speed;
-};
-```
+    Tiger.prototype = new Animal();
+    Tiger.prototype.setSpeed = function(speed) {
+        this._speed = speed;
+    };
+    Tiger.prototype.getSpeed = function() {
+        return this._speed;
+    };
+    ```
 
 * [REGEX](https://github.com/juanmaguitar/javascript-notes/tree/master/markdown-en/08-regular-expressions)
     - [Examples page](https://lornajane.net/posts/2011/simple-regular-expressions-by-example)
@@ -128,7 +122,7 @@ function randomArg() {
 }
 ```
  
-* Review of clossures. Example:
+* Review of closures. Example:
 ```javascript
 function SafeBox(thing) {
     var secret = thing;

@@ -1,0 +1,42 @@
+<!--Test playground -->
+<!DOCTYPE HTML PUBLIC "-//W·C/DTD HTML 4.01//EN"
+	"http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>...</title>
+</head>
+
+<body>
+    <div>
+        <section>
+            <article>my <span style="background-color: red;">article</span></article>
+            <article>my article</article>
+        </section>
+        
+        <fieldset>
+        <legend>Personal:</legend>
+        <form action="/action_page.php" method="get"><!--the action performed by sumbit-->
+        	username: <input type="text">
+        	password: <input type="password">
+        	date: <input type="date" name="">
+        	<input type="submit">
+        </form>
+        </fieldset>
+
+        <fieldset>
+        <legend>Personal2:</legend>
+        <form action="/action_page.php" method="get"><!--the action performed by sumbit-->
+        	username: <input type="text" required><!--required validates intro of text field-->
+        	password: <input type="password">
+            email: <input type="email" required><!--required validates valid email address-->
+            Website: <input type="url" required pattern="https?://.+"><!-- validates patternº-->
+        	date: <input type="date" name="">
+        	<input type="submit">
+        </form>
+        </fieldset>
+    </div>
+</body>
+
+</html>

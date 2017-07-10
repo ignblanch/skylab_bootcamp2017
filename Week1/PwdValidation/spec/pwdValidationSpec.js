@@ -26,7 +26,7 @@ describe('passwordValidation', function() {
         expect(passwordValidation('12345678Awskqws')).toBeFalsy();
     });
 
-    it('accepts an alternative config file if passed', function () {
+    it('accepts an alternative config object if passed', function () {
         var altConfig = {
             size: 5,
             uppercase: 2,
