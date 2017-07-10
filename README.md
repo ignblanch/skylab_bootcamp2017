@@ -4,7 +4,7 @@
 ### SLIDES FOR THE COURSE
 [slides](https://skylabcoders.github.io/bootcamp-julio2017/)
 
-[WEEK 1](./Week1/README01.md)
+[WEEK 1](./Week1)
 
 Here I'll record all my activity during my bootcamp at Skylab Coders.
 
