@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>A Simple Form</title>
+</head>
+<body>
+	<h1>A Simple Form</h1>
+	<h2><em>Form Fundamentals</em></h2>
+	<fieldset>
+		<legend>Customer Info</legend>
+		Name:
+		<input type="text" name="name" placeholder="Enter your name" autofocus required><br>
+		Telephone:
+		<input type="tel" name="phone "pattern="\d\-\d{3}\-\d{3}\-\d{4}" placeholder="Pattern="1-234-567-8910" required><br>
+		Email address:
+		<input type="email" name="email" placeholder="Enter your email address" required>
+	</fieldset>
+	<fieldset>
+		<legend>Books</legend>
+		<input list="books">
+		<datalist id="books">
+  			<option value="The Old Man and the Sea">
+			<option value="Moby Dick">
+			<option value="The Great Gatsby">
+			<option value="On the Road">
+			<option value="The Sound and the Fury">
+		</datalist>
+		Quantity(Maximum 5):
+		<input type="number" name="quantity" min="1" max="5">
+	</fieldset>
+	<input type="submit" name="submit">
+	<footer>&copy Acme United. All rights reserved</footer>	
+</body>
+</html>
