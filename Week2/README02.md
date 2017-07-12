@@ -3,7 +3,7 @@
 ## WEEK 2
 
 ### TODO list
-* Review Jasmine theory - slides: 59, 60
+* ~~Review Jasmine theory - slides: 59, 60~~
 * Review HTML 5 theory - slides 71, 72
 * ~~Remove test repo html5-layouts~~
 * learn more about microformats in html
@@ -11,7 +11,8 @@
 * review media query - SLIDE 87
 ___
 * SLIDES: 47, 49, 50, 51, 
-* KATAS with tests: ~~65, 66~~, 67
+* KATAS with tests: ~~65, 66~~, 67, 62
+* CHALLENGE HTML, CSS - 95, 96
 
 ### SESSION 1
 * HTML, CSS - [slide](https://skylabcoders.github.io/bootcamp-julio2017/?full#71)
@@ -32,6 +33,7 @@ ___
 - HTML challenges - Slides 77, 78
 
 ### SESSION 2
+#### [CSS 3 cheatsheets](https://skylabcoders.github.io/bootcamp-julio2017/?full#92)
 - [CSS 3](https://skylabcoders.github.io/bootcamp-julio2017/?full#82)
 - [CSS complex selectors](http://learn.shayhowe.com/advanced-html-css/complex-selectors/)
 - [CSS Units](https://developer.mozilla.org/en-US/docs/Web/CSS/length)
@@ -48,3 +50,15 @@ ___
  
     + [Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 - [Media Query - Responsive Web Design](https://skylabcoders.github.io/bootcamp-julio2017/?full#87)
+
+### SESSION 3
+- CSS3 Effects & Animation - SLIDE 91
+    + @font-face, text-overflow, word-break, box-shadow...
+    + [border-radius](https://css-tricks.com/almanac/properties/b/border-radius/)
+    + [opacity](http://www.css3files.com/#opacity)
+- BOOTSTRAP
+    + [SLIDES](https://skylabcoders.github.io/bootcamp-julio2017/?full#98)
+    + Download Bootstrap : http://getbootstrap.com/
+    + [Examples](http://getbootstrap.com/getting-started/#examples)
+
+

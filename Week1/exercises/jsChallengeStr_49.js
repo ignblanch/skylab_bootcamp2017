@@ -31,3 +31,17 @@ function protectEmail(address) {
 	return address.substr(0, 4) + '...' + address.substr(address.indexOf('@'), address.length);
 }
 
+//Write a JavaScript function to parameterize a string
+function parameterize(str) {
+	return str.replace(/\./g, '').replace(/ /g, '-').toLowerCase();
+}
+
+//Write a JavaScript function to capitalize the first letter of a string
+function capitalizeFirst(str) {
+	return str.substring(0, 1).toUpperCase() + str.substring(1);
+}
+
+//converts upper case letters to lower case, and lower case letters to upper case
+function swapCase(str) {
+	//TODO
+}
