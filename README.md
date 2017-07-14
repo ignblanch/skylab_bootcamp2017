@@ -5,6 +5,8 @@
 [slides](https://skylabcoders.github.io/bootcamp-julio2017/)
 
 [WEEK 1](./Week1)
+[WEEK 2](./Week2)
+
 
 Here I'll record all my activity during my bootcamp at Skylab Coders.
 
