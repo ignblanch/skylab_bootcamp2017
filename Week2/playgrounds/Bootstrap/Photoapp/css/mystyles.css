@@ -1,0 +1,85 @@
+.navbar-default .navbar-brand {
+    color: #1CAA98;
+}
+
+.page-header {
+	padding-top: 30px;
+	border:none;
+}
+
+.jumbotron {
+    background-image: url("../img/site_showcase_bg.jpg");
+    background-position: center;
+    height: 642px;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+.icons {
+	margin-right: 20px;
+	margin-top:10px;
+}
+
+#green {
+	color: #1CAA98;
+}
+
+#hand {
+	margin-top: 50px;
+}
+
+.mid {
+	border:1px solid #EAEAEA;
+	width:100%;
+}
+
+.lower {
+	padding-top: 20px; 
+	margin-top: 20px;
+	background-color:#1CAA98; 
+	min-height:350px;
+	color:white;
+	font-size:24px;
+}
+
+.lower ul li {
+	list-style: none;
+}
+
+.lower ul {
+	margin-left: -35px;
+}
+
+footer {
+	bottom: 0px;
+  	min-height: 50px;
+  	left: 0;
+  	right: 0;
+	padding-top: 10px;
+	color:white;
+	background-color: #333333;
+}
+
+footer li {
+	margin-right: 20px;
+	display:inline-block;
+}
+
+footer a {
+	color:white;
+}
+
+/* about.html*/
+.top_bar {
+	margin-top: 50px;
+	color:white;
+	height: 75px;
+	background-color:#1CAA98; 
+}
+
+.about_row {
+	margin-top: 30px; 
+}
+
