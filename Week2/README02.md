@@ -1,5 +1,8 @@
 # SKYLAB CODERS BOOTCAMP - SUMMER 2017
 
+### SLIDES FOR THE COURSE
+[slides](https://skylabcoders.github.io/bootcamp-julio2017/)
+
 ## WEEK 2
 
 ### TODO list
@@ -12,7 +15,7 @@
 ___
 * SLIDES: 47, 49, 50, 51, 
 * KATAS with tests: ~~65, 66~~, 67, 62
-* CHALLENGE HTML, CSS - 95, 96
+* CHALLENGE HTML, CSS - ~~95~~, 96
 
 ### SESSION 1
 * HTML, CSS - [slide](https://skylabcoders.github.io/bootcamp-julio2017/?full#71)

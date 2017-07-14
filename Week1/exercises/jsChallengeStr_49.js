@@ -43,5 +43,9 @@ function capitalizeFirst(str) {
 
 //converts upper case letters to lower case, and lower case letters to upper case
 function swapCase(str) {
-	//TODO
+	var arr = str.split('');
+	return (arr.map(function(item){
+		if(/[a-z]/g.test(item)){return item.toUpperCase()}
+			else{return item.toLowerCase()}
+	})).join('');
 }

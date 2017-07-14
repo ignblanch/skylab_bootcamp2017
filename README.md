@@ -6,6 +6,7 @@
 
 [WEEK 1](./Week1)
 [WEEK 2](./Week2)
+[WEEK 3](./Week3)
 
 
 Here I'll record all my activity during my bootcamp at Skylab Coders.

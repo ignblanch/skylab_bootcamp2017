@@ -1,0 +1,23 @@
+h1, h2 {
+	color: darkgreen;
+}
+
+.orange {
+	color: orange;
+}
+
+ul>li>ul>li {
+	color:orange;
+}
+
+a {
+	color:blue;
+}
+
+td {
+	color:purple;
+}
+
+label {
+	color:darkred;
+}
