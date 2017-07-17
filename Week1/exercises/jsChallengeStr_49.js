@@ -41,6 +41,13 @@ function capitalizeFirst(str) {
 	return str.substring(0, 1).toUpperCase() + str.substring(1);
 }
 
+// capitalize first letter of each word
+function capitalizeWords(str) {
+	return str.split(' ')
+			.map(word=>word.substring(0, 1).toUpperCase() + word.substring(1))
+			.join(' ');
+}
+
 //converts upper case letters to lower case, and lower case letters to upper case
 function swapCase(str) {
 	var arr = str.split('');
@@ -48,4 +55,8 @@ function swapCase(str) {
 		if(/[a-z]/g.test(item)){return item.toUpperCase()}
 			else{return item.toLowerCase()}
 	})).join('');
+}
+
+function camelize(str) {
+	//TODO
 }

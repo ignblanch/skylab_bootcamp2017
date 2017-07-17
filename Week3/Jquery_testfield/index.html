@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JQuery_testfield</title>
+	<style type="text/css">
+		.box {
+			width:100px;
+			height: 100px;
+			background-color: skyblue;
+		}
+
+		.blue {
+			background-color: blue;
+		}
+
+		.red {
+			width: 200px;
+			height: 200px;
+			background-color: red;
+		}
+
+	</style>
+</head>
+<body>
+	
+	<div class="box" id="helloworld data-hello">12</div>
+
+	<a href="https://www.google.com" target="_blank">LINK</a>
+	
+	<!-- Jquery -->
+	<script src="http://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+
+	<!-- My scripts -->
+	<script type="text/javascript">
+
+		// vanilla js
+		// var x = document.getElementById('helloworld');
+
+		// x.onclick= function() {
+		// 	console.log('hello World');
+		// 	this.style.backgroundColor = 'red';
+		// }
+
+		//JQuery
+		// $('#helloworld').click(function() {
+		//  	console.log('hello World');
+		//  	this.style.backgroundColor = 'red';
+		// });	
+
+		$('a').click(function(event){
+			console.log('Default for links prevented!');
+			box.toggleClass('red');
+			event.preventDefault();
+		});
+		var box = $('.box');
+
+		box.click(function(){$(this).toggleClass('red')});
+
+		// We can access data from a tag by using the class data-....
+		var datos = $(".box").data('hello');
+		console.log(datos);
+		
+	</script>
+</body>
+</html>

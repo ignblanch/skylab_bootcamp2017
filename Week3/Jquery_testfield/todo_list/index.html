@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>TODO List</title>
+</head>
+<body>
+
+	<form>
+		<label for="task">Enter a to-do item and hit enter</label>
+		<input type="text" name="task">
+		<ul>
+			
+		</ul>
+	</form>
+
+
+	<!-- Jquery -->
+	<script src="http://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script type="text/javascript">
+		$("form" ).submit(function(event) {
+  			
+			var task = $("input").val().trim();
+
+			if(!task){
+				// do nothing
+			}else{
+				$('ul').append('<li>' + task + ' <a href="#">&check;</a></li>');
+			}
+
+			$("input").val('');
+  			//event.preventDefault();
+  			return false; // equivalent to prevernt default. We can add a flag
+		});
+
+		$(document).on('click', 'a', function(){
+			$(this).parent().remove();
+		});
+
+	</script>
+</body>
+</html>

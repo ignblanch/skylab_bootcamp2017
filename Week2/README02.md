@@ -5,18 +5,6 @@
 
 ## WEEK 2
 
-### TODO list
-* ~~Review Jasmine theory - slides: 59, 60~~
-* Review HTML 5 theory - slides 71, 72
-* ~~Remove test repo html5-layouts~~
-* learn more about microformats in html
-* ~~HTML Challenges - 77, 78~~
-* review media query - SLIDE 87
-___
-* SLIDES: 47, 49, 50, 51, 
-* KATAS with tests: ~~65, 66~~, 67, 62
-* CHALLENGE HTML, CSS - ~~95~~, 96
-
 ### SESSION 1
 * HTML, CSS - [slide](https://skylabcoders.github.io/bootcamp-julio2017/?full#71)
     - www.csszengarden.com - example of css to change design
