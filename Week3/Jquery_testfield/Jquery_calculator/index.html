@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Jquery calculator</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+    * {
+        font-size: 50px;
+    }
+
+    #display {
+        text-align: right;
+        padding: 5px;
+        font-size: 50px;
+        height: 60px;
+    }
+
+    input {
+        margin-bottom: 2%;
+        margin-top: 2%;
+        border: 2px solid red;
+    }
+
+    .box {
+        border: 2px solid blue;
+        background-color: black;
+        border-radius: 4%;	
+        width: 565px;
+        height: 100%;
+        margin-top: 4%;
+        margin-left: 15%;
+    }
+
+    .line1 button {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 2%;
+        border: 2px solid red;
+        font-size: 50px;
+    }
+
+    .line2 button {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 2%;
+        border: 2px solid red;
+        font-size: 50px;
+    }
+
+    .line3 button {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 2%;
+        border: 2px solid red;
+        font-size: 50px;
+    }
+
+    .line4 button {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 2%;
+        border: 2px solid red;
+        font-size: 50px;
+    }
+
+    #igual {
+    	border: 2px solid red;
+        width: 215px;
+    }
+
+    #igual:disabled { 	
+    	opacity:10;	
+	}
+    
+    .op:disabled {
+    	opacity:10;
+    	cursor: pointer;
+    }
+
+    #reset {
+    	border: 2px solid red;
+    }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Calculator jQUERY</h1>
+    </header>
+    <div class="box">
+        <div>
+            <input type="text" class="form-control" id="display">
+        </div>
+        <div class="line1">
+            <button class="btn btn-info">1</button>
+            <button class="btn btn-info">2</button>
+            <button class="btn btn-info">3</button>
+            <button class="btn btn-warning op" id="sum" disabled>+</button>
+            <button class="btn btn-warning op" id="subt" disabled>-</button>
+        </div>
+        <div class="line2">
+            <button class="btn btn-info">4</button>
+            <button class="btn btn-info">5</button>
+            <button class="btn btn-info">6</button>
+            <button class="btn btn-warning op" id="mult" disabled>*</button>
+            <button class="btn btn-warning op" id="div" disabled>/</button>
+        </div>
+        <div class="line3">
+            <button class="btn btn-info">7</button>
+            <button class="btn btn-info">8</button>
+            <button class="btn btn-info">9</button>
+            <input class="btn-warning" type="button" id="igual" value="=" disabled>
+        </div>
+        <div class="line4">
+            <button class="btn btn-info">0</button>
+            <input class="btn-danger" type="button" id="reset" value="RESET">
+        </div>
+    </div>
+
+    <script src="http://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+
+    $('#display').val('0');
+
+    var num1Complete = false;
+    var num1 = '';
+    var num2 = '';
+    var result = 0;
+    var operator = '';
+
+    $('button').click(function(e) {
+        if (!num1Complete) {
+            num1 += e.target.innerText;
+            $('#display').val(num1);
+            $('.op').removeAttr('disabled');
+            console.log(num1);
+        } else {
+            num2 += e.target.innerText;
+            $('#display').val(num2);
+             $('#igual').removeAttr('disabled');
+            console.log(num2);
+        }
+    });
+
+    $('.op').click(function(e) {
+        num1Complete = true;
+
+        operator = e.target.id;
+        $('.op').attr('disabled', 'true');
+        console.log(operator);
+    });
+
+    $('#igual').click(function() {
+        num1 = parseInt(num1);
+        num2 = parseInt(num2);
+        switch (operator) {
+            case 'sum':
+                result = num1 + num2;
+                break;
+            case 'subt':
+                result = num1 - num2;
+                break;
+            case 'mult':
+                result = num1 * num2;
+                break;
+            case 'div':
+                result = num1 / num2
+        }
+        $('#display').val(result);
+    });
+
+    $('#reset').click(function() {
+        num1Complete = false;
+        num1 = '';
+        num2 = '';
+        result = 0;
+        operator = '';
+        $('#display').val('0');
+        $('#igual').attr('disabled', 'true');
+        $('.op').attr('disabled', 'true');
+    });
+
+    </script>
+</body>
+
+</html>
