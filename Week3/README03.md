@@ -24,3 +24,14 @@
 ### SESSION 3
 * JQuery review
 * Intro to [Angular JS](https://skylabcoders.github.io/bootcamp-julio2017/?full#angular)
+
+### SESSION 4
+* Presentation - Business - Data
+
+| Presentation           |    Business     |   Data    |
+|------------------------|:---------------:|----------:|
+| Views, lists, templates..| Services, Logic | API,DB..|
+
+
+
+

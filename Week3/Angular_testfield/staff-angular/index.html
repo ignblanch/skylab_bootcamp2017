@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html ng-app="staffApp">
+
+<head>
+    <title></title>
+</head>
+
+<body>
+
+    <div ng-controller="SearchController as searchCtrl">
+
+        <input type="text" ng-model="searchCtrl.query">
+        <button ng-click="searchCtrl.search()">search</button>
+        <ul>
+            <li ng-repeat="item in searchCtrl.items"><a href="" ng-click="searchCtrl.show(item.id)">{{ item.name }}</a></li>
+        </ul>
+
+        <p ng-show="searchCtrl.detail">{{ searchCtrl.detail }}</p>
+
+    </div>
+
+
+
+    <!-- CDN AngularJS 
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    -->
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript">
+
+    var app = angular.module('staffApp', []);
+
+    app.controller('SearchController', function($http, staffService) { /////inyectamos si no lo usamos??
+        var self = this;
+
+        self.query = '';
+
+        self.search = function() {
+            self.detail = '';
+
+            staffService.search(self.query, function(items) {
+                self.items = items;
+            });
+        };
+
+        self.show = function(id) {
+            staffService.item(id, function(item) {   ////// De dónde sale este parámetro
+                self.detail = item.name + ' ' + item.surname;
+            });
+        };
+    });
+
+    app.service('staffService', function($http) {
+        var self = this;
+
+        function filter(query) {
+            return self.cache.filter(function(item) {
+                if (item.name.toLowerCase().indexOf(query.toLowerCase()) !== -1) {
+                    return item;
+                }
+            });
+        }
+
+        self.search = function(query, callback) {
+            if (!self.cache) {
+                var url = 'staff.json';
+
+                $http.get(url)
+                    .then(function(response) {
+                        self.cache = response.data;
+
+                        callback(filter(query));
+                    });
+            } else {
+                callback(filter(query));
+            }
+        };
+
+        self.item = function(id, callback) {
+            for (var i = 0; i < self.cache.length; i++) {
+                var item = self.cache[i];
+                if (item.id === id) {
+                    callback(item);
+                    break;
+                }
+            }
+        };
+    });
+    </script>
+</body>
+
+</html>

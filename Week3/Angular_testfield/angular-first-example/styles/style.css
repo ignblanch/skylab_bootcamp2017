@@ -1,0 +1,26 @@
+h3{
+	margin-top: 0;
+}
+
+.firstBox{
+	padding-top: 25px;
+	background-color: red;
+	width: 100%;
+	height: 100px;
+}
+.secondBox{
+	padding-top: 25px;
+	background-color: blue;
+	width: 100%;
+	height: 100px;
+}
+.otherBox{
+	display: flex;
+	padding-top: 25px;
+	background-color: green;
+	width: 100%;
+	height: 100px;
+}
+.otherBox input, button {
+	height: 40px;
+}

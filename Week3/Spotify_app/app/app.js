@@ -1,7 +1,7 @@
 /* Token expires after 60 minutes. 
 Get a new one at https://developer.spotify.com/web-api/console/get-search-item/ */
 
-const token = 'BQDWTBUsRa9v24XAHR4q9oZrgCgd0bwa0-5o3bMeQvONKuijo1zOvprrL7yg-iHNo2axPEgrewguKODydtL-5HofJu9j33DnVONW4afsj5YUQRZkEroJndC2_pVKVOXd6MxY';
+const token = 'BQCdHjHdrhXCyPTsCzWJgwzIJkoY0LZTOvklCsIga5DNeMAQIro3jUsD4ve7wyd_Rg3aDJZmi3xErndX21jShlzrrMnyABxzKAikH2DLOLyos6d2pBrxHNyj3nJT5_uUKtCJ';
 
 $('#submit').on('click', function(e) {
     e.stopImmediatePropagation();

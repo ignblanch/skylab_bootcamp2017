@@ -1,0 +1,54 @@
+<!doctype html>
+<html ng-app="helloWorldApp">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
+  </head>
+  <body>
+    <div ng-controller="HelloWorldCtrl">
+
+        <input type="text" ng-model="helloWorld">
+        
+        <span>{{helloWorld}}</span>
+
+        <div ng-controller="HelloWorld2Ctrl">
+        
+          <span>{{helloWorld2}}</span>
+
+          <span>{{helloWorld}}</span><!-- var is not present in the current $scope so it gets it from the parent $scope, in the parent controller -->
+        </div>
+
+    <div ng-controller = "ProfileCtrl as profile"> <!-- we instantiate it with a shortcut for refference-->
+
+        <p>{{profile.name}}</p>
+        <p>{{profile.surname}}</p>
+
+    </div>
+      
+    </div>
+
+    
+
+    <script type="text/javascript">
+
+      var app = angular.module('helloWorldApp', []);
+
+      app.controller('HelloWorldCtrl', function($scope){
+        $scope.helloWorld = 'Hello World!';
+      });
+
+      app.controller('HelloWorld2Ctrl', function($scope){
+        $scope.helloWorld2 = 'Hello World2!';
+      });
+
+      app.controller('ProfileCtrl', function(){
+        this.name = 'John'; // we can use the JS this keyword instead of $scope
+        this.surname = 'Doe';
+        //this.photo = "image.jpg";
+        //.... 
+      });
+
+
+
+    </script>
+  </body>
+</html>
