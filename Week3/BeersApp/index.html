@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Beers_app</title>
+    <!--Bootstrap-->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+    .jumbotron {
+        _background-color: #F5511E;
+    }
+
+    #image {
+        height: 50%;
+        float: right;
+        padding: 10px;
+    }
+
+    img {
+        max-height: 50%;
+        max-width: 50%;
+    }
+
+    .badge {
+        font-size: 20px;
+        background-color: #D9534F;
+    }
+
+    .left {
+        _padding: 20px;
+    }
+
+    label {
+        padding: 10px;
+        font-size: 20px;
+    }
+
+    h1 {
+        _padding: 10px;
+    }
+
+    h2 {
+        _margin-left: 20px;
+    }
+
+    #search {
+        margin-top: 5px;
+        width: 40%;
+        font-size: 25px;
+    }
+
+    #submit {
+        position: relative;
+        top: -5px;
+    }
+
+    ul {
+        list-style: none;
+        font-size: 20px;
+    }
+
+    #list {
+        font-size: 18px;
+        _width: 75%;
+    }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="jumbotron text-center">
+        <h1>BEERS_app</h1>
+        <p>SEARCH YOUR FAVORITE BEER</p>
+        <input type="text" id="search">
+        <button class="btn btn-danger" id="submit">SEARCH</button>
+    </div>
+
+    <div class="container">
+        <div class="row">
+        
+            <div class="col-lg-6 col-xs-12 left">
+                <div id="title">
+                </div>
+                <div class="list-group" id="list"></div>
+            </div>
+
+            <div class="col-lg-6 col-xs-12 right" id="details">
+            
+                <div class="media media-right">
+                    <div class="media-heading">
+                        <div id="name"></div>
+                    </div>
+                    <div class="media-body">
+                        <div class="media-middle">
+                            <div class="_media-object" id="image"></div>
+                        </div>
+                        <div id="description"></div>
+                    </div>
+                </div> 
+
+            </div>
+        </div>
+    </div>
+    <!--JQuery -->
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <!-- BoostrapJS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    $('#submit').on('click', function(event) {
+        //Reset divs
+        $('#list').empty();
+        $('#title').html('');
+        $('#name').html('');
+        $('#description').html('');
+        $('#image').html('');
+
+        var url = 'https://quiet-inlet-67115.herokuapp.com/api/search/all?q=' +
+            $('#search').val();
+
+        $.getJSON(url)
+            .done(function(data) {
+                console.log('success!');
+
+                //var ids = data.map(it => it.id);
+
+                $('#title').append('<h2>Beers Found <span class="badge">' + data.length + '</span> </h2>');
+
+                data.forEach(function(item) {
+                    $('#list').append('<li class="list-group-item"><a href="#" data-id=' + item.id + '>' + item.name + '</a></li>');
+                    return false;
+                });
+
+                $('a').on('click', function(event) {
+                    $('li').removeClass('list-group-item-danger');
+                    $(this).parent().addClass('list-group-item-danger');
+                    console.log('a clicked!');
+
+                    var url = 'https://quiet-inlet-67115.herokuapp.com/api/beer/' + $(this).attr('data-id');
+                    console.log(url);
+
+                    $.getJSON(url)
+                        .done(function(data) {
+                            console.log('success!');
+
+                            $('#name').html('<h2>' + data.name + '</h2>');
+
+                            if (data.style.description) {
+                                $('#description').html('<p>' + data.style.description + '</p>');
+
+                            } else {
+                                $('#description').html('<p>Description not available</p>');
+                            }
+                            if (data.labels) {
+                                $('#image').html('<img src="' + data.labels.large + '">');
+                            } else {
+                                $('#image').html('');
+                            }
+
+                        })
+                        .fail(function() {
+                            console.log('fail');
+                        });
+                        return false;
+                });
+            })
+            .fail(function() {
+                console.log('fail');
+            });
+    });
+    </script>
+</body>
+
+</html>

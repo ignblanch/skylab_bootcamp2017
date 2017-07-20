@@ -13,3 +13,14 @@
     - [Jquery](https://skylabcoders.github.io/bootcamp-julio2017/?full#115)
     - [Jquery CDN](http://code.jquery.com/)
     - JQuery [exercise](https://skylabcoders.github.io/bootcamp-julio2017/?full#120) - [solved](./Jquery_testfield/Jquery-calculator)
+
+### SESSION 2
+* Review JQuery
+* [JSON /AJAX](https://skylabcoders.github.io/bootcamp-julio2017/?full#122)
+    - Requests to api
+    - [SOP - Same Origin Policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy)
+    - Challenges
+
+### SESSION 3
+* JQuery review
+* Intro to [Angular JS](https://skylabcoders.github.io/bootcamp-julio2017/?full#angular)

@@ -1,0 +1,80 @@
+.jumbotron {
+    background-color: #0F8F4F;
+    color: white;
+}
+
+#search {
+    color: black;
+    margin-top: 5px;
+    width: 40%;
+    font-size: 25px;
+}
+
+#submit {
+    position: relative;
+    top: -5px;
+    left: -5px;
+    padding: 10px;
+}
+
+#artistList {
+	color:black;
+	display: block;
+	margin:0 auto;
+	width: 25%;
+	visibility: hidden;
+}
+
+#titleRes {
+	visibility: hidden;
+}
+
+#artist-pic {
+    margin: 0 auto;
+    height: 150px;
+    padding:10px;
+}
+
+.list {
+    cursor: pointer;
+}
+
+.albumContainer {
+    margin-left: 10%;
+}
+
+#albumList {
+    width: 100%;
+    _border: 1px solid black;
+    overflow: hidden;
+}
+
+.albumItem {
+    width: 300px;
+    float:left;
+    _border: 1px solid red;
+}
+
+.album-pic {
+    height: 200px;
+}
+
+#songsList {
+    font-size: 18px;
+    list-style: none;
+}
+
+iframe {
+    float:left;
+    height: 100px;
+    border: none;
+}
+
+.modal-header {
+    color:white;
+    background-color: #0F8F4F;
+}
+
+.modal-footer {
+    background-color: black;
+}

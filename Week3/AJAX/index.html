@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX Example</title>
+</head>
+
+<body>
+	<!-- Jquery -->
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+	<script type="text/javascript">
+
+    /////////// vanilla JS ////////////////
+
+    // var url = 'http://data.colorado.gov/resource/4ykn-tg5h.json?entitystatus=Good%20Standing&principalzipcode=80001';
+
+    // var xhr = new XMLHttpRequest();
+
+    // xhr.onload = function() {
+    //     console.log('Success');
+    //     //console.log(xhr.responseText);
+    //     var data = JSON.parse(xhr.responseText);
+    //     console.log(data);
+    //     // get just the surnames
+    //     console.log(data.map(it=>it.agentlastname));
+    // }
+
+    // xhr.onerror = function() {
+    //     console.error('Error');
+    // }
+
+    // xhr.open('GET', url, true);
+    // xhr.send();
+
+    /////////// JQUERY ////////////////
+
+	//var url = 'http://data.colorado.gov/resource/4ykn-tg5h.json?entitystatus=Good%20Standing&principalzipcode=80001';
+	
+	var url = 'helloworld.json'
+
+	// METHOD 1 -  using ajax method
+	// $.ajax({
+	// 		url: url
+	// 	})
+	// 	.done(function(data) {
+	// 		console.log('success!');
+	// 		//console.log(data);
+	// 		var firstNames = data.map(it=>it.agentfirstname);
+	// 		console.log(firstNames);
+	// 	})
+	// 	.fail(function() {
+	// 		console.log('fail');
+	// });
+
+	// METHOD 2 - using getJSON method - even shorter
+	$.getJSON(url)
+		.done(function(data) {
+			console.log('success!');
+			console.log(data);
+			//var firstNames = data.map(it=>it.agentfirstname);
+			//console.log(firstNames);
+		})
+		.fail(function() {
+			console.log('fail');
+	});
+
+    </script>
+</body>
+
+</html>

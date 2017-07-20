@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Spotify_search</title>
+        <!--Bootstrap-->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="styles/styles.css">
+    </head>
+
+    <body>
+
+        <div class="jumbotron text-center">
+            <h1>Spotify_search</h1>
+            <p>SEARCH YOUR FAVORITE ARTIST</p>
+            <input type="text" id="search">
+            <button class="btn btn-info" id="submit">SEARCH</button>
+            <p id="titleRes">ARTISTS FOUND</p>
+            <img id="artist-pic">
+            <select id="artistList"></select>
+        </div>
+        
+        <div class="row text-center albumContainer">
+            <div id="albumList" class="list" class="col-lg-12">
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header text-center">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h3 class="modal-title">Modal Header</h3>
+                    </div>
+                    <div class="modal-body">
+                        <ul id="songsList"></ul>
+                    </div>
+                    <div class="modal-footer">
+                        <iframe name="player"></iframe>
+                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--JQuery -->
+        <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <!-- BoostrapJS -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="app/app.js" type="text/javascript"></script>
+    </body>
+
+</html>
