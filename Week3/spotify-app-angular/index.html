@@ -1,61 +1,62 @@
 <!DOCTYPE html>
-<html lang="en" ng-app ="spotifyApp">
-<head>
-	<meta charset="UTF-8">
-	<title>SpotifyApp</title>
-	<!--Bootstrap-->
-     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-     <!--Styles -->
-     <link rel="stylesheet" type="text/css" href="styles/styles.css">
-</head>
-<body>
+<html lang="en" ng-app="spotifyApp">
 
-	<div class="jumbotron text-center" ng-controller = "artistController as artistCtrl">
+<head>
+    <meta charset="UTF-8">
+    <title>SpotifyApp</title>
+    <!--Bootstrap-->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!--Styles -->
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
+</head>
+
+<body>
+    <div class="jumbotron text-center" ng-controller="artistController as artistCtrl">
         <h1>Spotify_search</h1>
         <p>SEARCH YOUR FAVORITE ARTIST</p>
         <input type="text" id="search" ng-model="artistCtrl.query">
+
         <button class="btn btn-info" id="submit" ng-click="artistCtrl.search()">SEARCH</button>
+
         <p id="titleRes" ng-show="artistCtrl.artistFound">ARTIST FOUND</p>
-
         <img id="artist-pic" ng-src="{{artistCtrl.artistPic}}">
-        <select id="artistList" ng-model="artistCtrl.items">
-      		<option ng-repeat="item in artistCtrl.items" value="{{item.id}}">{{item.name}}</option>
-    	</select>
-     </div>
 
-        <div class="row text-center albumContainer">
-            <div id="albumList" class="list" class="col-lg-12">
-            </div>
+        <ul id="artistList" ng-controller="albumController as albumCtrl">
+            <li ng-repeat="artist in artistCtrl.artists"> <a href="#" ng-click="albumCtrl.search(artist.id)"> {{artist.name}}</a></li>
+        </ul>
+   
+    </div>
+
+
+    <div class="row text-center albumContainer">
+        <div id="albumList" class="list" class="col-lg-12">
         </div>
-
-        <!-- Modal -->
-        <div id="myModal" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header text-center">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h3 class="modal-title">Modal Header</h3>
-                    </div>
-                    <div class="modal-body">
-                        <ul id="songsList"></ul>
-                    </div>
-                    <div class="modal-footer">
-                        <iframe name="player"></iframe>
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
-                    </div>
+    </div>
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title">Modal Header</h3>
+                </div>
+                <div class="modal-body">
+                    <ul id="songsList"></ul>
+                </div>
+                <div class="modal-footer">
+                    <iframe name="player"></iframe>
+                    <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
-
-	
-<!-- AngularJS-->
-<script type="text/javascript" src="scripts/angular.min.js"></script>
-<!--Scripts-->
-<script type="text/javascript" src="scripts/app.js"></script>
-<script type="text/javascript" src="scripts/controllers.js"></script>
-<script type="text/javascript" src="scripts/services.js"></script>
-
-
+    </div>
+    <!-- AngularJS-->
+    <script type="text/javascript" src="scripts/angular.min.js"></script>
+    <!--Scripts-->
+    <script type="text/javascript" src="scripts/app.js"></script>
+    <script type="text/javascript" src="scripts/controllers.js"></script>
+    <script type="text/javascript" src="scripts/services.js"></script>
 </body>
+
 </html>

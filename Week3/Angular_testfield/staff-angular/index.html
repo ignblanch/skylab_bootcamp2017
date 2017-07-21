@@ -29,13 +29,13 @@
 
     var app = angular.module('staffApp', []);
 
-    app.controller('SearchController', function($http, staffService) { /////inyectamos si no lo usamos??
+    app.controller('SearchController', function($http, staffService) {
         var self = this;
 
         self.query = '';
 
         self.search = function() {
-            self.detail = '';
+            self.detail = ''; // Empty detail if exists
 
             staffService.search(self.query, function(items) {
                 self.items = items;
@@ -43,7 +43,7 @@
         };
 
         self.show = function(id) {
-            staffService.item(id, function(item) {   ////// De dónde sale este parámetro
+            staffService.item(id, function(item) { 
                 self.detail = item.name + ' ' + item.surname;
             });
         };

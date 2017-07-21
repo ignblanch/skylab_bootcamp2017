@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html ng-app="nApp">
+
+<!--
+	User register / login / profile App
+
+	* Shows the correct Separation of Concerns principle
+	* Splits the implementation in layers:
+		- presentation
+		- business & data
+	* Reuses the service component in all controllers
+-->
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <div ng-controller="RegisterController as registerCtrl" ng-hide="registerCtrl.userExists()">
+    	<h1>register</h1>
+        <form>
+            <input type="name" name="name" placeholder="name" ng-model="registerCtrl.name">
+            <input type="surname" name="surname" placeholder="surname" ng-model="registerCtrl.surname">
+            <input type="email" name="email" placeholder="e-mail" ng-model="registerCtrl.email">
+            <input type="photo" name="photo" placeholder="photo url" ng-model="registerCtrl.photo">
+            <input type="text" name="username" placeholder="username" ng-model="registerCtrl.username">
+            <input type="password" name="password" placeholder="password" ng-model="registerCtrl.password">
+            <button ng-click="registerCtrl.register()">register</button>
+        </form>
+    </div>
+    <div ng-controller="LoginController as loginCtrl" ng-show="loginCtrl.userExistsAndNotLoggedIn()">
+    	<h1>login</h1>
+    	<input type="text" name="username" placeholder="username" ng-model="loginCtrl.username">
+            <input type="password" name="password" placeholder="password" ng-model="loginCtrl.password">
+            <button ng-click="loginCtrl.login()">login</button>
+    </div>
+    <div ng-controller="ProfileController as profileCtrl" ng-show="profileCtrl.loggedIn()">
+    	<h1>profile</h1>
+    	<img src="{{ profileCtrl.user().photo }}">
+    	<span>{{ profileCtrl.user().name }}</span>
+    	<span>{{ profileCtrl.user().surname }}</span>
+    	<span>{{ profileCtrl.user().email }}</span>
+    	<span>{{ profileCtrl.user().username }}</span>
+    	<button ng-click="profileCtrl.logout()">logout</button>
+    </div>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script type="text/javascript">
+    	var app = angular.module('nApp', []);
+
+    	app.controller('RegisterController', function(userService) {
+    		var self = this;
+
+    		self.register = function() {
+    			var user = {
+    				name: self.name,
+    				surname: self.surname,
+    				email: self.email,
+    				photo: self.photo,
+    				username: self.username,
+    				password: self.password
+    			};
+    			userService.register(user, function(registered) {
+    				if (!registered) {
+    					alert('not all fields available for registration, please review fields and retry!');
+    				}
+    			});
+    		};
+
+    		self.userExists = function() {
+    			return userService.exists();
+    		};
+    	});
+
+    	app.controller('LoginController', function(userService) {
+    		var self = this;
+
+    		self.userExistsAndNotLoggedIn = function() {
+    			return userService.exists() && !userService.loggedIn();
+    		};
+
+    		self.login = function() {
+    			var user = {
+    				username: self.username,
+    				password: self.password
+    			};
+    			userService.login(user, function(loggedIn) {
+    				if (!loggedIn) {
+    					alert('username or password incorrect, please retry!');
+    				}
+    			});
+    		};
+    	});
+
+    	app.controller('ProfileController', function(userService) {
+    		var self = this;
+
+    		self.user = function() {
+    			return userService.user();
+    		};
+
+    		self.loggedIn = function() {
+    			return userService.loggedIn();
+    		};
+
+    		self.logout = function(callback) {
+    			userService.logout(function(loggedOut) {
+    				if(!loggedOut) {
+    					alert('couldnt log you out, cause you have a terrorist profile and the NSA is investigating you while you are logged in... forever');
+    				}
+    			});
+    		}
+    	});
+
+    	app.service('userService', function() {
+    		var self = this;
+
+    		var _user = {};
+
+    		self.register = function(user, callback) {
+    			if (user.name && user.surname && user.email && user.username && user.password) {
+
+    				_user = user;
+
+    				callback(true);
+    			} else {
+    				callback(false);
+    			}
+    		};
+
+    		self.exists = function() {
+    			return !!_user.name;
+    		};
+
+    		self.login = function(user, callback) {
+    			if (_user.username === user.username && _user.password === user.password) {
+
+    				_user.loggedIn = true;
+
+    				callback(true);
+    			} else {
+    				callback(false);
+    			}
+    		};
+
+    		self.loggedIn = function() {
+    			return _user.loggedIn;
+    		};
+
+    		self.user = function() {
+    			return {
+    				name: _user.name,
+    				surname: _user.surname,
+    				email: _user.email,
+    				photo: _user.photo,
+    				username: _user.password
+    			};
+    		};
+
+    		self.logout = function(callback) {
+    			_user.loggedIn = false;
+
+    			callback(true);
+    		};
+    	});
+    </script>
+</body>
+
+</html>

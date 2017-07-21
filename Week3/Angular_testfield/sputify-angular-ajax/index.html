@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html ng-app="sputifyApp">
+
+<head>
+    <title>sputify app</title>
+</head>
+
+<body>
+    <h1>sputify app</h1>
+    <div ng-controller="SputifyController as sputifyCtrl">
+        <input type="text" ng-model="sputifyCtrl.query">
+        <button ng-click="sputifyCtrl.searchArtists()">search</button>
+        <ul>
+            <li ng-repeat="artist in sputifyCtrl.artists"><a href="" ng-click="sputifyCtrl.showAlbums(artist.id)">{{ artist.name }}</a></li>
+        </ul>
+        <ul>
+            <li ng-repeat="album in sputifyCtrl.albums"><a href="" ng-click="sputifyCtrl.showSongs(album.id)">{{ album.title }}</a></li>
+        </ul>
+        <!-- <span ng-show="sputifyCtrl.songDetail">{{ sputifyCtrl.songDetail }}</span> -->
+        <ul>
+            <li ng-repeat="song in sputifyCtrl.songs"><a href="" ng-click="sputifyCtrl.showSongDetail(song.id)">{{song.title}}</a> 
+            </li>
+        </ul>
+        <p ng-show="sputifyCtrl.song">{{sputifyCtrl.song.track}}</p>
+    </div>
+    <!--
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    -->
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript">
+    var app = angular.module('sputifyApp', []);
+
+    app.controller('SputifyController', function(sputifyService) {
+        var self = this;
+
+        self.searchArtists = function() {
+            self.albums = undefined;
+            self.songs = undefined;
+            self.song= undefined;
+
+            sputifyService.searchArtists(self.query, function(artists) {
+                self.artists = artists;
+            });
+        };
+
+        self.showAlbums = function(artistId) {
+            sputifyService.searchAlbums(artistId, function(albums) {
+                self.albums = albums;
+            });
+        };
+
+        self.showSongs = function(albumId) {
+            sputifyService.searchSongs(albumId, function(songs) {
+                self.songs = songs;
+
+            })
+        }
+
+        self.showSongDetail = function(songId) {
+            console.log('buscando cancion: ' + songId);
+            self.songs.forEach(function (song){
+                if(song.id===songId){
+                    self.song = song;
+                }  
+            })                                      
+        }
+
+    });
+
+    app.service('sputifyService', function($http) {
+        var self = this;
+
+        function filter(query) {
+            return self.artists.filter(function(artist) {
+                if (artist.name.toLowerCase().indexOf(query.toLowerCase()) !== -1) {
+                    return artist;
+                }
+            });
+        }
+
+        self.searchArtists = function(query, callback) {
+            if (!self.artists) {
+                var url = 'artists.json';
+
+                $http.get(url)
+                    .then(function(response) {
+                        self.artists = response.data;
+
+                        callback(filter(query));
+                    });
+            } else {
+                callback(filter(query));
+            }
+        };
+
+        self.searchAlbums = function(artistId, callback) {
+            if (!self.albums) {
+                var url = 'albums.json';
+
+                $http.get(url)
+                    .then(function(response) {
+                        self.albums = response.data;
+
+                        callback(self.albums[artistId]);
+                    });
+            } else {
+                callback(self.albums[artistId]);
+            }
+        };
+
+        self.searchSongs = function(albumId, callback) {
+            if (!self.songs) {
+                var url = 'songs.json';
+
+                $http.get(url)
+                    .then(function(response) {
+                        self.songs = response.data;
+                        callback(self.songs[albumId]);
+                    });
+            } else {
+                callback(self.songs[albumId]);
+            }  
+        }
+
+
+        self.artist = function(id, callback) {
+            for (var i = 0; i < self.artists.length; i++) {
+                var artist = self.artists[i];
+                if (artist.id === id) {
+                    callback(artist);
+                    break;
+                }
+            }
+        };
+    });
+    </script>
+</body>
+
+</html>

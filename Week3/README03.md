@@ -32,6 +32,12 @@
 |------------------------|:---------------:|----------:|
 | Views, lists, templates..| Services, Logic | API,DB..|
 
+### SESSION 5
+* AngularJS
+    - Stateful, stateless services
+    - Routing. Lazy loading
+
+
 
 
 

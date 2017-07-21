@@ -1,0 +1,57 @@
+[
+	{
+		"id": 1,
+		"name": "Manuel",
+		"surname": "Barzi" 
+	},
+	{
+		"id": 2,
+		"name": "Joel",
+		"surname": "Vila"
+	},
+	{
+		"id": 3,
+		"name": "Samuel",
+		"surname": "Navero"
+	},
+	{
+		"id": 4,
+		"name": "Yasmina",
+		"surname": "Gavaldà"
+	},
+	{
+		"id": 5,
+		"name": "Santi",
+		"surname": "Velat"
+	},
+	{
+		"id": 6,
+		"name": "Hernán",
+		"surname": "de Soto"
+	},
+	{
+		"id": 7,
+		"name": "Kevin",
+		"surname": "Ros"
+	},
+	{
+		"id": 8,
+		"name": "Alex",
+		"surname": "Delgado"
+	},
+	{
+		"id": 9,
+		"name": "Ignasi",
+		"surname": "Blanch"
+	},
+	{
+		"id": 10,
+		"name": "Dídac",
+		"surname": "Tey"
+	},
+	{
+		"id": 11,
+		"name": "Marc",
+		"surname": "Rosell"
+	}
+]
