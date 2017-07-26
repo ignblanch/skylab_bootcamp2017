@@ -7,30 +7,36 @@
     <!--Bootstrap-->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <!--Styles -->
-    <link rel="stylesheet" type="text/css" href="styles/styles.css">
+    <!-- <link rel="stylesheet" type="text/css" href="styles/styles.css"> -->
 </head>
 
 <body>
-    <div class="jumbotron text-center" ng-controller="artistController as artistCtrl">
+    <div class="jumbotron text-center" ng-controller="ArtistController as artistCtrl">
         <h1>Spotify_search</h1>
         <p>SEARCH YOUR FAVORITE ARTIST</p>
         <input type="text" id="search" ng-model="artistCtrl.query">
 
-        <button class="btn btn-info" id="submit" ng-click="artistCtrl.search()">SEARCH</button>
+        <button class="btn btn-info" id="submit" ng-click="artistCtrl.searchArtist()">SEARCH</button>
 
         <p id="titleRes" ng-show="artistCtrl.artistFound">ARTIST FOUND</p>
-        <img id="artist-pic" ng-src="{{artistCtrl.artistPic}}">
+        <!-- <img id="artist-pic" ng-src="{{artistCtrl.artistPic}}"> -->
 
-        <ul id="artistList" ng-controller="albumController as albumCtrl">
-            <li ng-repeat="artist in artistCtrl.artists"> <a href="#" ng-click="albumCtrl.search(artist.id)"> {{artist.name}}</a></li>
+        <ul id="artistList">
+            <li ng-repeat="artist in artistCtrl.artists"> 
+
+            <a href="#" ng-click="artistCtrl.searchAlbum(artist.id)"> {{artist.name}}</a>
+            </li>
         </ul>
    
+        <ul id="albumList">
+            <li ng-repeat="album in artistCtrl.albums"> 
+            {{album.name}}
+
+            </li>
+        </ul>
+        
     </div>
-
-
-    <div class="row text-center albumContainer">
-        <div id="albumList" class="list" class="col-lg-12">
-        </div>
+    
     </div>
     <!-- Modal -->
     <div id="myModal" class="modal fade" role="dialog">

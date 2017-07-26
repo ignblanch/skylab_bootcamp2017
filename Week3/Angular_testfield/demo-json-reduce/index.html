@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Demo JSON Reduce elements</h1>
+    <div>
+        <label>Your favourite city:
+            <input type="text" name="fruit" list="cities">
+            <datalist id="cities"></datalist>
+        </label>
+    </div>
+    <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript">
+
+      $.ajax({
+              url: 'spain_city_list.json'
+          })
+          .then(function(response) {
+            var options = response.map( function(city) {
+              return '<option>' +  city.name + '</option>'
+            })
+            $('#cities').html( options.join('') )
+          })
+
+    </script>
+</body>
+
+</html>

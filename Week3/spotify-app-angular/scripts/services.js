@@ -6,7 +6,7 @@ angular.module('spotifyApp')
 	.service('SpotifyService', function($http) {
   		var self = this;
 
-  		const token = 'BQCO-v0L0nxaJzx0FHiabI1_QWI0SIAgoB-r6uxdrmgBNkMteLkS8iOtwebJ-5_HRoOQf0L5StWtkrzhb6wt-w3HkxUL7K3hx1b-dgsrToo8EfLt3wt0zTMA1CXfwOy7Ht1a';
+  		const token = 'BQD3hC52ARLrzmEvfBmyEbpOaM_un625Y2HtObgwKUO3Yr4FV_ug6jRPtJOfYDUDalKpO5mmPLtcaZ6qCY5EhWZknRYGEhlE-EoLaQ8CNtC_gPFYut2hVXWvu4m_yBTk8gwW';
 
   		self.artistSearch = function(query, callback) {
 

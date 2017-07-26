@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myGithubApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Demo Angular App</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <style type="text/css">
+      .box-results {
+        width: 250px;
+      }
+      .box-results-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      .box-results-container h3 {
+        text-align: center;
+      }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <ng-view></ng-view>
+        <!-- <ng-include src="'templates/searchForm.html'"></ng-include>
+        <ng-include src="'templates/searchResults.html'"></ng-include> -->
+
+    </div>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular-route.min.js"></script>
+
+    <!-- MODULE -->
+    <script type="text/javascript" src="js/app.js"></script>
+
+    <!-- SERVICES -->
+    <script type="text/javascript" src="js/services/GithubApiService.js"></script>
+
+    <!-- HOME -->
+    <script type="text/javascript" src="js/routes/home/controller.js"></script>
+    <script type="text/javascript" src="js/routes/home/config.js"></script>
+
+    <!-- SEARCH-RESULTS -->
+    <script type="text/javascript" src="js/routes/search-results/controller.js"></script>
+    <script type="text/javascript" src="js/routes/search-results/config.js"></script>
+
+
+
+</body>
+
+</html>

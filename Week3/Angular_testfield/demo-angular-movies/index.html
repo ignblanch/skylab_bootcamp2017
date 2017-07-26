@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MoviesApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <style type="text/css">
+    .search-results {
+      margin-top: 20px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    .thumbnail {
+      width: 250px;
+    }
+
+    .thumbnail img {
+      height:  300px;
+      width: 100%;
+      background-size: cover;
+      background-position: center center;
+    }
+    .thumbnail p {
+      height: 200px;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <form method="POST" role="form" ng-controller="FormController as form">
+      <legend>Form title</legend>
+      <div class="form-group">
+        <label for="">label</label>
+        <input ng-model="form.query" type="text" class="form-control" id="" placeholder="Input field">
+      </div>
+      <button ng-click="form.getQuery()" type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <div class="search-results" ng-controller="SearchResultsController as results">
+
+      <div class="thumbnail">
+        <img ng-style="{'background-image':'url({{ results.urlImage1 }})'}" alt="...">
+        <div class="caption">
+          <h3>Wonder Woman</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+        </div>
+      </div>
+
+      <div class="thumbnail">
+        <img ng-style="{'background-image':'url({{ results.urlImage2 }})'}"  alt="...">
+        <div class="caption">
+          <h3>Spiderman</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+        </div>
+      </div>
+
+
+      <div class="thumbnail" ng-repeat="movie in movies">
+
+
+          <img ng-style="{'background-image':'url(https://image.tmdb.org/t/p/w500//{{ movie.poster_path }})'}" >
+        <div class="caption">
+          <h3>{{ movie.original_title}}</h3>
+          <p>{{ movie.overview }}</p>
+          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+
+
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+  <script type="text/javascript">
+
+
+    var api_key = 'ba09f3c8c6c830377b422df18cfa833e'
+    var url = 'https://api.themoviedb.org/3/movie/550?api_key=' + api_key
+
+    // 'https://api.themoviedb.org/3/search/movie?api_key=ba09f3c8c6c830377b422df18cfa833e&language=en-US&query=back&page=1'
+
+    angular.module('MoviesApp', [])
+      .controller('FormController', function( $rootScope, MoviesApiService ) {
+
+        var self = this;
+
+        self.getQuery = function() {
+          var query = self.query
+          MoviesApiService.searchMovies(query)
+            .then(function( response ) {
+              var moviesFound = response.data.results;
+              $rootScope.movies = moviesFound
+            })
+        }
+
+      })
+      .controller('SearchResultsController', function( MoviesApiService ) {
+
+        var self = this;
+
+        self.urlImage1 = "https://cdn.traileraddict.com/content/warner-bros-pictures/wonder-woman-2017-5.jpg"
+
+        self.urlImage2 = "http://cdn.empireonline.com/jpg/80/0/0/1200/675/0/0/0/0/0/0/0/c/articles/591adfbf727080962dd5a841/Empire%20Spider-Man%20cover%20crop.jpg"
+
+
+      })
+      .factory( 'MoviesApiService', function( $http ) {
+
+        var token = 'ba09f3c8c6c830377b422df18cfa833e'
+
+        function searchMovies( query ) {
+
+          var url = 'https://api.themoviedb.org/3/search/movie?api_key=<%TOKEN%>&language=en-US&query=<%QUERY%>&page=1'
+
+          url = url.replace('<%TOKEN%>', token)
+          url = url.replace('<%QUERY%>', query)
+
+          return $http.get(url)
+
+        }
+
+        return {
+          searchMovies: searchMovies
+        }
+
+
+      })
+
+
+  </script>
+</body>
+</html>
