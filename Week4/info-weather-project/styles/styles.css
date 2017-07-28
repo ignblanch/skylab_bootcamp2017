@@ -1,0 +1,145 @@
+* {
+    font-weight: bold;
+}
+body {
+    background-image: url('../img/fondo.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.form-control {
+    font-weight: initial;
+}
+
+a {
+    text-decoration: none !important;
+    color: inherit;
+}
+
+
+#search {
+    width: 55%;
+    margin: 0 auto;
+}
+
+header {
+    margin-top: 5%;
+}
+
+
+.icon {
+    width: 20%;
+}
+
+.info-title {
+    font-size: 25px;
+}
+
+#margin-search {
+    margin-bottom: 5%;
+    color: #2F2F2F;
+}
+
+#margin-search-results {
+    margin-bottom: 5%;
+    color: #2F2F2F;
+}
+
+.title {
+	font-size: 100px;
+    text-shadow: 1px 1px 1px #FFF;
+}
+
+.subtitle {
+	font-size: 25px;
+}
+
+.title, .subtitle {
+    font-family: 'Josefin Sans'
+}
+
+
+#right-panel {
+    background-color: white;
+    height: 100%;
+}
+
+#home-cloudy {
+    font-size: 28px;
+}
+
+#home-city-name {
+    
+    font-size: 40px;
+    _color: black;
+}
+
+#home-more-info div p {
+    font-size: 18px;
+}
+
+.panel-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-weight: bold;
+
+}
+
+.dayForecast {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.loading-data {
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,.8);
+    position: absolute;
+    z-index:10;
+    top:0;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+}
+
+.loading-data p {
+    background: white;
+    color: black;
+    padding: 40px;
+    width: 500px;
+    text-align:center;
+}
+.loading-data p, .loading-data p i {
+    font-size: 24px;
+}
+
+.results-container {
+    height: 100%;
+}
+
+.thumbnail {
+    border-radius: 10px;
+    background-color: rgba(84, 101, 117,0.75);
+}
+
+.buttonMore {
+    border-radius: 12px;
+}
+
+#mapButton {
+    float: right;
+    padding: 7px 6px;
+}
+
+#countryCode {
+    font-size: 15px;
+}
+
+#resultsTitle {
+    font-size: 60px;
+}
+
+#formResults {
+    display: inline;
+}

@@ -1,34 +1,30 @@
+/* global angular */
 angular.module('spotifyApp')
 
+.controller('ArtistController', ['SpotifyService', function (SpotifyService) {
+  var self = this
 
-	.controller('ArtistController', ['SpotifyService', function (SpotifyService){
+  self.query = ''
 
-		var self = this;
+  self.searchArtist = function () {
+    SpotifyService.artistSearch(self.query, function (oData) {
+      console.log(oData)
+      self.artistFound = true
+      self.artistPic = oData.data.artists.items[0].images[0].url
+      self.artists = oData.data.artists.items
+    })
+  }
 
-		self.query = '';
+  self.searchAlbum = function (id) {
+    self.id = id
 
-		self.searchArtist = function() {
+    console.log('item clicked!')
 
-            SpotifyService.artistSearch(self.query, function(oData){
-            	console.log(oData);
-            	self.artistFound = true;
-            	self.artistPic = oData.data.artists.items[0].images[0].url;
-            	self.artists = oData.data.artists.items;
-            });
-        };
-
-        self.searchAlbum = function(id) {
-
-            self.id = id;
-
-            console.log('item clicked!');
-
-            SpotifyService.albumSearch (id, function(oData){
-                self.albums = oData.data.items;
-                console.log('success!');
-                console.log(oData);
-                console.log(self.albums);
-            });
-        };
-       
-	}]);
+    SpotifyService.albumSearch(id, function (oData) {
+      self.albums = oData.data.items
+      console.log('success!')
+      console.log(oData)
+      console.log(self.albums)
+    })
+  }
+}])

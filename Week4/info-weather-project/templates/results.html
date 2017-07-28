@@ -1,0 +1,71 @@
+<div ng-hide="dataLoaded" class="loading-data">
+        <p ><i class="fa fa-refresh fa-spin fa-3x fa-fw"></i> Loading cities...</p>
+    </div>
+<div class="row">
+    <div class="col-md-6 col-sm-12" ng-controller="SearchController as searchCtrl" data-ng-init="searchCtrl.loadCities()">
+        <header id="margin-search-results">
+            <div class="text-center container-fluid">
+                <form id="formResults" ng-submit="searchCtrl.getQuery()">
+                <h1 class="title"><a href="#!/">infoWeather</a></h1>
+                <p class="subtitle">instant city Weather search</p>
+                <div id="search" class="input-group">
+                    <input ng-model="searchCtrl.query" type="text" class="form-control" placeholder="enter a city"  list="cities">
+
+                    <datalist id="cities" >
+
+                        <option ng-repeat="city in searchCtrl.allCities" value='{{city.name}}'>{{city.name}}
+                        </option>
+
+                    </datalist>
+
+                    <span ng-click="searchCtrl.getQuery()" class="btn btn-info input-group-addon" id="basic-addon2">SEARCH</span>
+                    </div>
+                    </form>
+                </div>
+                </header>
+            </div>
+        
+    
+    <div class="container-fluid" ng-controller="ResultsController as resultsCtrl">
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <div class="thumbnail results-container">
+                    <div class="caption">
+                        <h2 id="resultsTitle" class="text-center">{{resultsCtrl.city.data.name}}<span id="countryCode"> ({{ resultsCtrl.city.data.sys.country }})<br> </span>{{resultsCtrl.Temp}}ºC<img class="icon" src="{{resultsCtrl.IconUrl}}" alt="..."></h2>
+                        <p class="info-title text-center">{{ resultsCtrl.Cloudy }}</p>
+                        <p class="info-title">Max: {{ resultsCtrl.T_max }}º</p>
+                        <p class="info-title">Min: {{ resultsCtrl.T_min }}º</p>
+                        <p class="info-title">Humidity: {{ resultsCtrl.Humidity }}%</p>
+                        <p class="info-title">Air Preassure: {{ resultsCtrl.Pressure }}hPa</p>
+                        <a id="mapButton" target="_blank" href="https://www.google.es/maps/place/{{resultsCtrl.city.data.name}}" class="btn btn-info">View Map</a>
+                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                            <div class="panel panel-info">
+                                <div class="panel-heading" role="tab" id="headingOne">
+                                    <h4 class="panel-title">
+                                    <a ng-click="resultsCtrl.fiveDays()" role="button" data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" >
+                                        Next 6 days...
+                                    </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                    <div class="panel-body" class="fiveDays">
+                                        <div class="row">
+                                            <div class="col-md-2" ng-repeat="day in resultsCtrl.daysTime|limitTo:6">
+                                                <div class="thumbnail text-center dayForecast" >
+                                                    <img src="{{'http://openweathermap.org/img/w/' + day.weather['0'].icon + '.png'}}" />
+                                                    <p>{{ day.dt * 1000 | date : format:'EEEE, MMMM, d' }}</p>
+                                                    <p>Max: {{ resultsCtrl.Math.floor(day.temp.max) }}</p>
+                                                    <p>Min: {{ resultsCtrl.Math.floor(day.temp.min) }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>

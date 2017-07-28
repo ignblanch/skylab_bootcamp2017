@@ -1,0 +1,107 @@
+ <div ng-hide="dataLoaded" class="loading-data">
+        <p ><i class="fa fa-refresh fa-spin fa-3x fa-fw"></i> Loading cities...</p>
+    </div>
+<header id="margin-search" ng-controller="SearchController as searchCtrl" data-ng-init="searchCtrl.loadCities()">
+       
+        <div class="text-center container-fluid">
+            <div class="row">                
+                <form ng-submit="searchCtrl.getQuery()">                    
+                    <h1 class="title">infoWeather</h1>
+                    <p class="subtitle">instant city Weather search</p>
+                    <div id="search" class="input-group">
+
+                        <input ng-model="searchCtrl.query" type="text" class="form-control" placeholder="enter a city"  list="cities">
+
+                        <datalist id="cities" >
+
+                            <option ng-repeat="city in searchCtrl.allCities" value='{{city.name}}'>{{city.name}}
+                            </option>
+
+                        </datalist>
+
+                        <span ng-click="searchCtrl.getQuery()" class="btn btn-info input-group-addon" id="basic-addon2">SEARCH</span>
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="container-fluid" ng-controller="ThumbnailsController as thumbCtrl">
+        <div class="row">
+            <div class="col-sm-12 col-lg-4 col-md-4 col-xs-12">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h2 id="home-city-name" class="text-center">Paris {{ thumbCtrl.parisTemp }}º<img class="icon" src="{{ thumbCtrl.parisIconUrl }}" alt="..."></h2>
+                        <div class="row">
+                            <div class="text-center">
+                                <p id="home-cloudy" class="info-title">{{ thumbCtrl.parisCloudy }}</p>
+                            </div>
+                        </div>
+                        <div id="home-more-info" class="row">
+                            <div class="col-md-6 col-xs-12">
+                                <p class="info-title">Max: {{ thumbCtrl.parisT_max }}º</p>
+                                <p class="info-title">Min: {{ thumbCtrl.parisT_min }}º</p>
+                            </div>
+                            <div class="col-md-6 col-xs-12">
+                                <p class="info-title">Humidity: {{ thumbCtrl.parisHumidity }}%</p>
+                                <p class="info-title">Pressure: {{ thumbCtrl.parisPressure }}hPa</p>
+                            </div>
+                        </div>
+                        <p class="text-center"><a href="#!/results/paris" class="buttonMore btn btn-primary" role="button">More info</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-lg-4 col-md-4 col-xs-12">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h2 id="home-city-name" class="text-center">London {{ thumbCtrl.londonTemp }}º<img class="icon" src="{{ thumbCtrl.londonIconUrl }}" alt="..."></h2>
+                        <div class="row">
+                            <div class="text-center">
+                                <p id="home-cloudy" class="info-title">{{ thumbCtrl.londonCloudy }}</p>
+                            </div>
+                        </div>
+                        <div id="home-more-info" class="row">
+                            <div class="col-md-6 col-xs-12">
+                                <p class="info-title">Max: {{ thumbCtrl.londonT_max }}º</p>
+                                <p class="info-title">Min: {{ thumbCtrl.londonT_min }}º</p>
+                            </div>
+                            <div class="col-md-6 col-xs-12">
+                                <p class="info-title">Humidity: {{ thumbCtrl.londonHumidity }}%</p>
+                                <p class="info-title">Preassure: {{ thumbCtrl.londonPressure }}hPa</p>
+                            </div>
+                        </div>
+                        <p class="text-center"><a href="#!/results/london" class="buttonMore btn btn-primary" role="button">More info</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-lg-4 col-md-4 col-xs-12">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h2 id="home-city-name" class="text-center">New York {{ thumbCtrl.newyorkTemp }}º<img class="icon" src="{{ thumbCtrl.newyorkIconUrl }}" alt="..."></h2>
+                        <div class="row">
+                            <div class="text-center">
+                                <p id="home-cloudy" class="info-title">{{ thumbCtrl.newyorkCloudy }}</p>
+                            </div>
+                        </div>
+                        <div id="home-more-info" class="row">
+                            <div class="col-md-6 col-xs-12">
+                                <p class="info-title">Max: {{ thumbCtrl.newyorkT_max }}º</p>
+                                <p class="info-title">Min: {{ thumbCtrl.newyorkT_min }}º</p>
+                            </div>
+                            <div class="col-md-6 col-xs-12">
+                                <p class="info-title">Humidity: {{ thumbCtrl.newyorkHumidity }}%</p>
+                                <p class="info-title">Preassure: {{ thumbCtrl.newyorkPressure }}hPa</p>
+                            </div>
+                        </div>
+                        <p class="text-center"><a href="#!/results/new%20york" class="buttonMore btn btn-primary" role="button">More info</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+    <div>
+
+    </div>

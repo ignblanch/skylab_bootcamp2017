@@ -1,163 +1,132 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="testApp">
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	
+  <meta charset="UTF-8">
+  <title>Document</title>
+  
     
 </head>
 <body>
-	<div ng-controller = "testController as testCtrl" data-ng-init="testCtrl.loadCities()">
+  <div ng-controller = "testController as testCtrl" data-ng-init="testCtrl.loadCities()">
 
-	<input type="text" ng-model='testCtrl.query'"
-    list="cities">
+  <input type="text" ng-model='testCtrl.query' list="cities">
 
-        <datalist id="cities">
+        <datalist id="cities" >
 
-            <option ng-repeat="city in cities"></option>
+            <option ng-repeat="city in testCtrl.allCities" value='{{city.name}}'>{{city.name}}</option>
 
         </datalist>
             
-	<button ng-click="testCtrl.search()">SEARCH</button>
+  <button ng-click="testCtrl.search()">SEARCH</button>
 
-	<img src='{{testCtrl.iconUrl}}'>
-	
+  <img src='{{testCtrl.iconUrl}}'>
+  
 
-	<div>
-		<p>Current Temp: {{testCtrl.current}}</p>
-		<p>Max Temp: {{testCtrl.max}}</p>
-		<p>Min Temp: {{testCtrl.min}}</p>
-		<button ng-click="testCtrl.showFiveDays()">5 DIAS</button>
-		<ul>
-		<li ng-repeat="day in testCtrl.fiveDays">
+  <div>
+    <p>Current Temp: {{testCtrl.current}}</p>
+    <p>Max Temp: {{testCtrl.max}}</p>
+    <p>Min Temp: {{testCtrl.min}}</p>
+    <button ng-click="testCtrl.showFiveDays()">5 DIAS</button>
+    <ul>
+    <li ng-repeat="day in testCtrl.fiveDays">
         <img src="{{'http://openweathermap.org/img/w/' + day.weather['0'].icon + '.png'}}">
         
         </li>
-		</ul>		
-		<p>Humidity: {{testCtrl.humidity}}</p>
-		<p>Date: {{testCtrl.date | date}}</p>
-		<p>Preassure: {{testCtrl.preassure}}</p>
+    </ul>   
+    <p>Humidity: {{testCtrl.humidity}}</p>
+    <p>Date: {{testCtrl.date | date}}</p>
+    <p>Preassure: {{testCtrl.preassure}}</p>
 
 
-	
+  
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 
 <script type="text/javascript">
+ /* global angular */
+  var app = angular.module('testApp', [])
 
-	var app = angular.module('testApp', []);
+  app.controller('testController', function (testService) {
+    var self = this
 
-	app.controller('testController', function(testService) {
-		var self=this;
+    self.query = ''
 
-		self.query = '';
+    self.loadCities = function () {
+      testService.listCities(function (response) {
+        self.allCities = response.data
+        // console.log(self.allCities)
+      })
+    }
 
-		
+    self.search = function () {
+      testService.search(self.query, function (response) {
+        self.data = response
+        self.iconUrl = 'http://openweathermap.org/img/w/'
+        console.log('button clicked!')
+        self.iconUrl += response.data.weather['0'].icon + '.png'
+        self.current = response.data.main.temp + 'ºC'
+        self.max = response.data.main.temp_max + 'ºC'
+        self.min = response.data.main.temp_min + 'ºC'
+        self.date = response.data.dt * 1000
+        console.log(self.date)
+        self.humidity = response.data.main.humidity + '%'
+        self.preassure = response.data.main.pressure + 'Hpa'
+        self.lat = response.data.coord.lat
+        self.lon = response.data.coord.lon
+        self.mapUrl = 'http://openweathermap.org/weathermap?basemap=map&cities=false&layer=clouds&lat=' + self.lat + '&lon=' + self.lon + '&zoom=10'
+      })
+    }
 
-        self.loadCities = function(){
-             testService.listCities(function(response){
-                self.allCities = JSON.stringify(response);
-                var allCities = self.allCities;
-                console.log(allCities);
+    self.showFiveDays = function () {
+      console.log('button clicked!!')
+      testService.searchFiveDays(self.query, function (response) {
+        self.fiveDays = response.data.list
+        console.log(self.fiveDays)
+        self.icono = 'http://openweathermap.org/img/w/' + day.weather['0'].icon + '.png'
+        // console.log(self.icono)
+        console.log('el controlador de 5 días ha recibido respuesta' + response)
+      })
+    }
+  })
 
-                self.cities = allCities.map(function(city){
-                    return city.name;
-                });
+  app.service('testService', function ($http) {
+    var self = this
 
-                console.log(self.cities);
-            });
-        }
+    self.listCities = function (callback) {
+      $http.get('city_list.json')
+          .then(function (response) {
+            callback(response)
+          })
+    }
 
-		self.search = function(){
+    self.search = function (query, callback) {
+        // var key = '68d52a9f0d93266ba323fbb2e254f29d';
+      self.query = query
+      var url = 'http://api.openweathermap.org/data/2.5/weather?q=' + self.query + '&appid=68d52a9f0d93266ba323fbb2e254f29d&units=metric'
 
+      $http.get(url)
+          .then(function (response) {
+            console.log('success!!')
+            console.log(response)
+            callback(response)
+          }, function errorCallback (response) {
+            console.error('Fail to connect to API' + response)
+          })
+    }
 
-       
+    self.searchFiveDays = function (query, callback) {
+      self.query = query
+      var url = 'http://api.openweathermap.org/data/2.5/forecast/daily?q=' + query + '&appid=68d52a9f0d93266ba323fbb2e254f29d&units=metric'
 
-		testService.search(self.query, function(response) {
-
-				self.data = response;
-				
-
-				self.iconUrl = 'http://openweathermap.org/img/w/'
-				console.log('button clicked!')
-                self.iconUrl += response.data.weather["0"].icon + '.png';
-                self.current = response.data.main.temp + 'ºC';
-                self.max = response.data.main.temp_max + 'ºC';
-                self.min = response.data.main.temp_min + 'ºC';
-                self.date = response.data.dt*1000;
-                console.log(self.date);
-                self.humidity = response.data.main.humidity + '%';
-                self.preassure = response.data.main.pressure + 'Hpa';
-                self.lat = response.data.coord.lat;
-				self.lon = response.data.coord.lon;	
-				self.mapUrl = 'http://openweathermap.org/weathermap?basemap=map&cities=false&layer=clouds&lat=' +self.lat  + '&lon=' + self.lon  + '&zoom=10';
-				self.prev
-
-         		});
-		}
-
-		self.showFiveDays = function(){
-			console.log('button clicked!!');
-			testService.searchFiveDays(self.query, function(response){
-				self.fiveDays = response.data.list;
-				console.log(self.fiveDays);
-				self.icono =  'http://openweathermap.org/img/w/' + day.weather['0'].icon + '.png';
-				//console.log(self.icono)
-				
-				console.log('el controlador de 5 días ha recibido respuesta' + response);
-
-
-			})
-		}
-	});
-
-	app.service('testService', function($http){
-		var self=this;
-
-        self.listCities = function (callback) {
-            $http.get('city.list.json')
-                .then(function (response){
-                    callback(response);
-            })
-        }
-
-		self.search = function(query, callback) {
-
-				//var key = '68d52a9f0d93266ba323fbb2e254f29d';
-				self.query = query;
-            
-                var url = 'http://api.openweathermap.org/data/2.5/weather?q=' + self.query + '&appid=68d52a9f0d93266ba323fbb2e254f29d&units=metric';
-
-                $http.get(url)
-                    .then(function(response) {
-                        console.log('success!!');
-                        console.log(response);
-                        callback(response);
-
-
-                }, function errorCallback(response){
-                	console.error('Fail to connect to API' + response);
-                });
-            
-         }
-
-         self.searchFiveDays = function(query, callback) {
-         	self.query = query;
-         	var url = 'http://api.openweathermap.org/data/2.5/forecast/daily?q=' + query + '&appid=68d52a9f0d93266ba323fbb2e254f29d&units=metric';
-
-         		$http.get(url)
-                    .then(function(response) {
-                        console.log('success!!');
-                        console.log(response);
-                        callback(response);
-
-                }, function errorCallback(response){
-                	console.error('Fail to connect to API' + response);
-                });
-
-         }
-
-
-	});
+      $http.get(url)
+        .then(function (response) {
+          console.log('success!!')
+          console.log(response)
+          callback(response)
+        }, function errorCallback (response) {
+          console.error('Fail to connect to API' + response)
+        })
+    }
+  })
 
 </script>
 </body>

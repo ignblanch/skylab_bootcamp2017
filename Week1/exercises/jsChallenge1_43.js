@@ -1,5 +1,5 @@
 // returns all numbers between an interval, if first is lower returns -1
-function interval(x1, x2) {
+function interval (x1, x2) {
     var arr = [];
     if (x1 > x2) {
         return -1

@@ -1,1 +1,2 @@
-angular.module('spotifyApp', []);
+/* global angular */
+angular.module('spotifyApp', [])
