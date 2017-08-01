@@ -5,8 +5,6 @@
 
 ## WEEK 3
 
-### TODO list
-
 ### SESSION 1
 * Jquery
     - [The Browser environment BOM / DOM](https://skylabcoders.github.io/bootcamp-julio2017/?full#114)

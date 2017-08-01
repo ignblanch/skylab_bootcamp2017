@@ -4,6 +4,8 @@
 [slides](https://skylabcoders.github.io/bootcamp-julio2017/)
 
 ## WEEK 5
+
+### SESSION 1
 * [NodeJS](https://skylabcoders.github.io/bootcamp-julio2017/?full#207)
   - In client global object is Window. In server we have a global object called Global
 * NPM - Node package manager:
@@ -18,3 +20,33 @@
     + [Node Exercises](https://github.com/juanmaguitar/js-server-exercises/tree/master/node-exercises)
     - process.env - shows us the environment variables available in node as object Ex. process.env.$PATH is the node way to access $PATH. We can store environment variables in terminal. Ex. URL = 'www.skylabcoders.com'
     and then access it as process.env.URL
+
+### SESSION 2
+* Node practice using the module [learnyounode](https://github.com/workshopper/learnyounode)
+* [STREAMS](https://www.sitepoint.com/basics-node-js-streams/)
+  - fs.createReadStream, createWriteStream...
+```javascript
+var fs = require('fs');
+var readableStream = fs.createReadStream('file.txt');
+var data = '';
+
+readableStream.on('data', function(chunk) {
+    data+=chunk;
+});
+
+readableStream.on('end', function() {
+    console.log(data);
+});
+```
+ - Piping
+```javascript
+var fs = require('fs');
+var readableStream = fs.createReadStream('file1.txt');
+var writableStream = fs.createWriteStream('file2.txt');
+
+readableStream.pipe(writableStream);
+```
+- process.stdin / process.stdout - are the read/write streams of the terminal
+
+
+
