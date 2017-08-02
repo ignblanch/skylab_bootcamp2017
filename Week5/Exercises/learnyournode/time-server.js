@@ -1,12 +1,9 @@
 var net = require('net')
+var strftime = require('strftime')
 var port = process.argv[2]
-var moment = require('strftime')
 
 var server = net.createServer(function (socket) {
-  socket.on('end', function () {
-    console.log('server off')
-  })
-  socket.write(moment('%y/%m/%d %h:%m'))
-  socket.pipe(socket)
+  socket.end(strftime('%F %R', new Date()) + '\n')
 })
+
 server.listen(port)

@@ -12,7 +12,7 @@
   - We manage modules with module.exports / require 
     + NPM install 'module' => installs module locally
     + NPM install 'module' -g => installs globally
-    + npm init -y - creates empty package.json file ready
+    + npm init -y => creates empty package.json file ready
     + NPM install 'module' --save => keeps a record of all dependencies inside 'package.json' file inside our project
     + NPM install => installs all dependencies stored in package.json file
   - There are certain node modules that are native but we have to use require nontheless [reference](https://github.com/juanmaguitar/apuntes-nodejs/blob/master/modulos/modulos-node-required.md): http, url, path, fs...
@@ -48,5 +48,35 @@ readableStream.pipe(writableStream);
 ```
 - process.stdin / process.stdout - are the read/write streams of the terminal
 
+### SESSION 3
+- [NodeJS streams](https://medium.freecodecamp.org/node-js-streams-everything-you-need-to-know-c9141306be93)
+- streamTransform - npm through2   - allows us to pipe (transform) the request and return it 
 
+```javascript
+var http = require('http')
+var through2 = require('through2')
+var urlToGet = process.argv[2]
+
+var streamTransform = through2( function(chunk, _, next) {
+  chunk = chunk + '\n'
+  this.push(chunk) // we apply the canges to the read chunck
+  next() // we call this function to continue
+})
+
+http.get(urlToGet, function( readableResponse ) {
+
+  readableResponse.setEncoding('utf8')
+
+  readableResponse
+    .pipe(streamTransform) // applies the transformation
+    .pipe(process.stdout) // prints on screen
+
+})
+```
+
+- HTTP connections have request (readableStream)/response(writableStream): uses tcp underneath
+- TCP connections have a socket (duplexStream: both readable and writable)
+* Node practice using the module [stream-adventure](https://github.com/workshopper/stream-adventure)
+
+### SESSION 4
 
