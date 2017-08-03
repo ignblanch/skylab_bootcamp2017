@@ -79,4 +79,14 @@ http.get(urlToGet, function( readableResponse ) {
 * Node practice using the module [stream-adventure](https://github.com/workshopper/stream-adventure)
 
 ### SESSION 4
+* [ES6 aka ES2015](https://skylabcoders.github.io/bootcamp-julio2017/?full#es2015)
+  - Arrow Functions
+  - Block Scope : let, const
+  - Template strings - `` backticks, ${javascript exp}
+  - Enhanced Object literals: getters, setters
+  - Default parameters
+  - Destructuring arrays, objects
+  - Rest operator (...arr) undefined number of parameters to array
+  - Spread operator (...arr) fills multiple places from the elements of an array... 
 
+### SESSION 5
