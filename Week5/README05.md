@@ -90,3 +90,9 @@ http.get(urlToGet, function( readableResponse ) {
   - Spread operator (...arr) fills multiple places from the elements of an array... 
 
 ### SESSION 5
+* [**Promises**](https://skylabcoders.github.io/bootcamp-julio2017/?full#200) - a representation of future data - helps us manage these asynchronous flow of data. So far we've seen callback functions. We can get into *callback hell* with nested callbacks one inside the other. One way to solve this is using named functions instead of anonymous and thus separate the code into small and more comprehensive pieces. We can also modularize these several callbacks. However promises are the most elegant way to proceed in these cases.
+  - promise.all - receives an array of promises and executes the callback .then once all are resolved
+  - promise.race - receives an array of promises and executes the callback .then once the first one has resolved
+  - [Exercises](https://github.com/stevekane/promise-it-wont-hurt)
+* [devtool](https://www.npmjs.com/package/devtool) npm to debug node
+* [Modules](https://skylabcoders.github.io/bootcamp-julio2017/?full#190) -  CommonJS (Node) / AMD (frontend) - Bundlers : browserify, webpack

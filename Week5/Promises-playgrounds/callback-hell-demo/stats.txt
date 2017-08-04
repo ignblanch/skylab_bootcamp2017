@@ -1,0 +1,2 @@
+files/data.txt → true
+files/data1.txt → false

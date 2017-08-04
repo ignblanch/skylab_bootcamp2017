@@ -1,0 +1,2 @@
+../callback-hell-demo/files/data.txt → true
+,../callback-hell-demo/files/data1.txt → false
