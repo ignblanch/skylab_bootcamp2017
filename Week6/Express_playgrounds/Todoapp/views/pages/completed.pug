@@ -1,0 +1,18 @@
+extends ../layout
+
+block content
+  .containter
+    .jumbotron
+      h1 Completed Tasks
+      .container
+      if completed.length===0
+        p You have no completed tasks
+      else
+        ul.mainList.list-group#completedList
+          each completedItem, i in completed
+            li.list-group-item
+              button.pull-right.removeComp.btn.btn-danger.btn-lg Remove
+              input.hide.hidden(value=i)
+              p 
+                span#completed-item #{completedItem.title}
+                span  completed on #{moment(completedItem.date).format('DD-MM-YY hh:ss')} 

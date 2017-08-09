@@ -1,0 +1,14 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    title Simple TODO app
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css")
+    link(rel='stylesheet', href='/styles.css')
+  body
+  include includes/header  
+  .container
+    block content       
+  include includes/footer
+  script(src='https://code.jquery.com/jquery-2.0.3.min.js')
+  script(src='/main.js')

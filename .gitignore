@@ -1,3 +1,8 @@
-# Dependency directory
+# dependency directory
 
 node_modules
+
+# session-file-store
+
+sessions
+

@@ -34,3 +34,10 @@
         + we can use an online pug/jade to html conversor: http://html2jade.org/
 
 ### SESSION 2
+* Mini project: Build a todo app using express - [TODOapp](./todoApp)
+
+### SESSION 3
+* [Express router](https://www.diigo.com/annotated/495f15003add267cdd7ea347dfa1ad64)
+* [Sessions and cookies](https://skylabcoders.github.io/bootcamp-julio2017/?full#227) 
+    - [npm express-session](https://github.com/expressjs/session)
+    - To persist sessions in our server we must save data somewhere(DB). In our case we will store it in a file using [npm session-file-store](https://www.npmjs.com/package/session-file-store)
