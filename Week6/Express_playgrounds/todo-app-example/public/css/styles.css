@@ -1,0 +1,56 @@
+.container {
+  padding-bottom: 50px;
+}
+form {
+    display: inline-block;
+}
+.form-group {
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+a.close {
+  float: right;
+}
+
+.task-item span {
+  margin: 0 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.task-item:not(.task-done) span:hover i {
+  display:inline-block;
+}
+
+.task-item span i {
+  font-size: 14px;
+  margin-left: 10px;
+  display:none;
+}
+
+.task-item:hover {
+  background: #eee;
+}
+
+.task-done {
+  background: #CCC;
+  text-decoration: line-through;
+}
+
+.title-box {
+  display: inline-block;
+}
+
+.title-box input {
+  display: none;
+}
+
+.title-box.edit input {
+  display: block;
+  margin: 0 20px;
+}
+
+.title-box.edit span {
+  display: none;
+}

@@ -1,0 +1,21 @@
+{
+  "name": "todo-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app",
+    "dev": "nodemon app.js --ignore sessions/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "express-session": "^1.15.5",
+    "moment": "^2.18.1",
+    "pug": "^2.0.0-rc.3",
+    "session-file-store": "^1.1.2"
+  }
+}
