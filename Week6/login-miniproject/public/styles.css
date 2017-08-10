@@ -1,0 +1,15 @@
+.login-form {
+  width:50%;
+}
+
+.signup-form {
+  width:50%;
+}
+
+#logged-user {
+  font-size:24px;
+}
+
+#logo {
+  text-decoration: none;
+}

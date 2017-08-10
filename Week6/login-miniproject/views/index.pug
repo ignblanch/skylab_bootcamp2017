@@ -1,0 +1,18 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    title Simple Login app
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css")
+    link(rel='stylesheet', href='/styles.css')
+  body
+    .container
+      div.page-header
+        h1 
+          a#logo(href="/") Welcome to my app
+          if(logged) 
+            span#logged-user.pull-right Logged in as: #{logged}
+      .container
+      block content
+  script(src='https://code.jquery.com/jquery-2.0.3.min.js')
+  script(src='/main.js')
