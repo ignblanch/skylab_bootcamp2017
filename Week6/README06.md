@@ -45,3 +45,6 @@
 ### SESSION 4
 * [npm cookie session](https://www.npmjs.com/package/cookie-session)
 * Login app mini-project using express and cookie sessions
+
+### SESSION 5
+* Mini-project: Todo app now adds login capabilities and task lists per user [TODOapp-login](./Todoapp_login-miniproject)

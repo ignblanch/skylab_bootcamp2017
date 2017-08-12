@@ -31,8 +31,8 @@ router.post('/login', (req, res) => {
 router.post('/signup', (req, res) => {
   let newUser = `${req.body.username}:${req.body.password}`
   // console.log(newUser)
-  req.session.users.push(newUser)
   // console.log(req.session.users)
+  req.session.users.push(newUser)
   var text = ''
   req.session.users.forEach(user => { text += user + '\n' })
   fs.writeFile('assets/users.txt', text, (err) => {

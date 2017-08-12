@@ -1,0 +1,23 @@
+extends ./index
+
+block content
+  h1 TODO List
+  p(hidden)#confirm Task deleted
+  .container
+    form(action="/todos", method="POST")
+      button(type="button").alldone.btn.btn-lg.btn-success all done
+      input.input-lg(name="todo" placeholder="Enter todo" autofocus)
+      button.btn.btn-lg.btn-primary Add TODO
+    if todos.length===0
+      p Congrats! You're all clear
+    else
+    ul.list-group.mainList
+      each todo, i in todos
+        li.list-group-item
+          input.edit(style="display:none" type="text" name='edit' value=todo.title)
+          input.hide.hidden(value=i)
+          button.pull-left.complete.btn.btn-success.btn-lg Complete todo
+          button.pull-right.remove.btn.btn-danger.btn-lg Remove todo
+          p.list-item #{i+1 +  ' - ' + todo.title}
+          p#date created on #{moment(todo.date).format('DD-MM-YY hh:ss')}
+  a.btn.btn-danger(href="/logout") Logout

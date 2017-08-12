@@ -1,0 +1,18 @@
+extends ./index
+
+block content
+  .container
+    h2 Please Enter your credentials or sign up for a new account
+    form.login-form(action="login" method="POST")
+      div.form-group
+        label(for="email") Email address:
+        input.form-control(type="text" name="username" placeholder="email")
+      div.form-group
+        label(for="password") Password:
+        input.form-control(type="password" name="password" placeholder="password")
+      button.btn.btn-info(type="submit") Submit
+  .container
+    form(action="signup" method="get")
+      div.form-group
+      h2 SignUp for an account:
+      button.btn.btn-info(type="submit") Sign up

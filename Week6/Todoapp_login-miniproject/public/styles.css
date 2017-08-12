@@ -1,0 +1,84 @@
+.login-form {
+  width:50%;
+}
+
+.signup-form {
+  width:50%;
+}
+
+#logged-user {
+  font-size:24px;
+}
+
+/*#logo {
+  text-decoration: none;
+}*/
+
+#main-header {
+  margin-top: 70px;
+}
+
+form {
+  padding: 10px;
+}
+
+#completedList {
+  font-size: 18px;
+}
+
+#completed-item {
+  text-decoration: line-through;
+}
+
+#completed-date {
+  text-decoration: none;
+}
+
+.jumbotron {
+  padding-top: 80px;
+  background-color: white;
+}
+
+.input-lg {
+  outline: none;
+  border: 1px solid gray;
+}
+
+
+.glyphicon {
+  margin-left: 20px;
+}
+
+#confirm {
+  background-color: red;
+  color: white;
+}
+
+nav li {
+  font-size: 18px;
+}
+
+.list-item {
+  margin-left: 175px;
+}
+
+.edit {
+  margin-left:20px;
+  font-size: 20px;
+  border: none;
+  outline: none;
+}
+
+#date {
+  margin-left:175px;
+}
+
+.mainList{
+  list-style: none;
+  padding: 10px;
+  width:75%;
+}
+
+#date {
+  font-size: 18px;
+}
