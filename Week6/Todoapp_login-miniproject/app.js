@@ -3,7 +3,9 @@ const path = require('path')
 const bodyParser = require('body-parser') // captures from forms
 const cookieSession = require('cookie-session')
 const moment = require('moment')
-const router = require('./routes/routes.js')
+const authRouter = require('./routes/authRoute/authRoute')
+const todoRouter = require('./routes/todoRoute/todoRoute')
+const completeRouter = require('./routes/completeRoute/completeRoute')
 
 const app = express()
 const PORT = 3001
@@ -27,6 +29,9 @@ app.use(function (req, res, next) {
 app.set('view engine', 'pug')
 app.locals.pretty = true
 app.locals.moment = moment // this makes the variable available from the pug files
-app.use(router)
+
+app.use(authRouter)
+app.use(todoRouter)
+app.use(completeRouter)
 
 app.listen(PORT)
