@@ -1,7 +1,6 @@
 const fs = require('fs')
 
 function landLogic (req, res) {
-  console.log('enter get home: user ' + req.session.logged)
   if (!req.session.logged) {
     res.redirect('/login')
   } else {

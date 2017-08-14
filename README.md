@@ -8,7 +8,8 @@
 [WEEK 3](./Week3) - JQuery, AngularJS  
 [WEEK 4](./Week4) - FrontEnd Project  
 [WEEK 5](./Week5) - NodeJS, ES2015  
-[WEEK 6](./Week6) - Node Express 
+[WEEK 6](./Week6) - Node Express  
+[WEEK 7](./Week7)
 
 
 Here I'll record all activity during my bootcamp at Skylab Coders.
