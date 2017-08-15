@@ -1,5 +1,6 @@
 const { MongoClient } = require('mongodb')
 const express = require('express')
+const path = require('path')
 
 const app = express()
 const urlDb = 'mongodb://localhost:27017/test'
@@ -12,6 +13,12 @@ const byBorough = require('./handlers/byBorough')
 const byCuisine = require('./handlers/byCuisine')
 const byId = require('./handlers/byId')
 const byDistance = require('./handlers/byDistance')
+
+app.use(express.static(path.join(__dirname, 'public')))
+
+app.get('/', function (req, res) {
+  res.send('GET: Hello World!')
+})
 
 MongoClient.connect(urlDb, (err, db) => {
   if (err) throw err
@@ -26,4 +33,4 @@ MongoClient.connect(urlDb, (err, db) => {
 })
 
 app.listen(PORT)
-console.log(`Listening on PORT ${PORT}...`)
+console.log(`Listening on PORT ${PORT}.........`)

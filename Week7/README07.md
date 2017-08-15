@@ -12,8 +12,9 @@
     - Collections are similar to arrays of objects called documents.
     - Similar to json format: bson
         + Documents are like objects. A group of documents form a collection. A group of collections form a DB.
-    - To start mongodb we must exectute mongod --dpath ~/data/db this starts the daemon
+    - To start mongodb we must exectute mongod --dbpath ~/data/db this starts the daemon
     - To start the mongo shell with the daemon running we execute the command mongo
+    - _id is a reserved field that mongo fills for us with a unique id, also start with . 
         + basic shell commands: 
             - show dbs
             - use db
@@ -23,3 +24,7 @@
             - db.collection.remove
             - db.collection.drop
     - Exercise [slide 267](https://github.com/juanmaguitar/node-exercises/tree/master/03-mongo-exercises)
+
+### SESSION 2
+* Data models - schema [ref](https://skylabcoders.github.io/bootcamp-julio2017/?full#268)
+

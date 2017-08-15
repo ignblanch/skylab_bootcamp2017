@@ -1,5 +1,5 @@
 function parseQueries (req, res, next) {
-  const { limit = 20, show = '', hide = '', page = 1 } = req.query
+  const { limit = 10, show = '', hide = '', page = 1 } = req.query
   let projection = {}
 
   if (show) {

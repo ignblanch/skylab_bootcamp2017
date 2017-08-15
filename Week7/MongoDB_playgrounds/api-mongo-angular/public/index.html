@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="restaurantsApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Restaurants</title>
+    <!--Bootstrap-->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <form>
+        <input type="text" name="">
+    </form>
+    <div class="jumbotron text-center">
+        <h1>RESTAURANTS</h1>
+    </div>
+
+    <div class="container">
+        <ng-view></ng-view>
+    </div>
+
+    <!--Angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.js"></script>
+    <!-- angular Route-->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular-route.js"></script>
+
+    <!--JQuery -->
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <!-- BoostrapJS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Main module -->
+    <script src="js/app.js"></script>
+    <!-- Services -->
+    <script src="js/services/services.js"></script>
+    <!--routes -->
+    <script src="js/routes/listRestaurants/controller.js"></script>
+    <script src="js/routes/listRestaurants/index.js"></script>
+
+</body>
+
+</html>
