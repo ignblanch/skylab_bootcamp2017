@@ -6,3 +6,7 @@ node_modules
 
 sessions
 
+#bower dependencies
+
+bower_components
+

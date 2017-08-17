@@ -7,13 +7,13 @@ angular.module('restaurantsApp')
       return $http.get(url)
     }
 
-    function getRestLength () {
-      return $http.get(`/api/restaurants?limit=null`)
-    }
-
     function byBorough (borough, page) {
       let url = `/api/restaurants/borough/${borough}?page=${page}`
       return $http.get(url)
+    }
+
+    function getRestLength () {
+      return $http.get(`/api/restaurants?limit=null`)
     }
 
     function getLengthByBorough (borough) {
@@ -22,9 +22,8 @@ angular.module('restaurantsApp')
 
     return {
       loadRestaurants: loadRestaurants,
-      getRestLength: getRestLength,
       byBorough: byBorough,
+      getRestLength: getRestLength,
       getLengthByBorough: getLengthByBorough
-
     }
   })

@@ -1,0 +1,17 @@
+extends ../layout
+
+block content
+  .jumbotron
+    p Welcome to todoApp.Please enjoy
+    h1 Completed Items
+    .container
+      ul.list-group.mainList
+        each task, i in tasks
+          if task.done
+            li.list-group-item
+              .container
+                input.edit(style="display:none" type="text" name='edit' value=task._id)
+                input.todoId(style="display:none" type="text" name='edit' value=task._id)
+                button.pull-right.remove.btn.btn-danger.btn-lg Remove task
+                p.list-item #{task.title}
+                p#date created on #{task.createdAt}

@@ -11,12 +11,12 @@
 
 <body>
     <div class="jumbotron text-center">
-        <h1>RESTAURANTS</h1>
-        <div class="container" ng-controller="SearchController">
+        <h1><a href="/">RESTAURANTS</a></h1>
+        <div class="container search-container" ng-controller="SearchController">
             <form ng-submit="getQuery()">
                 <div id="search" class="input-group">
-                    <input ng-model="query" type="text" class="form-control" placeholder="enter a city" list="cities">
-                    <span ng-click="getQuery()" class="btn btn-info input-group-addon" id="basic-addon2">SEARCH NEIGHBOURHOOD</span>
+                    <input ng-model="query" type="text" class="form-control" placeholder="search neighborhood" list="cities">
+                    <span ng-click="getQuery()" class="btn btn-info input-group-addon" id="basic-addon2">SEARCH BOROUGH</span>
                 </div>
             </form>
         </div>

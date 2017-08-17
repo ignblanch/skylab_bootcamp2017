@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-ca" ng-app="restaurantsApp">
+
+<head>
+    <meta charset="utf-8">
+    <title>My Angular App</title>
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+
+<body>
+    <div class="container">
+      <ng-view></ng-view>
+    </div>
+
+    <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
+
+    <!-- MAIN MODULE -->
+    <script type="text/javascript" src="js/app.js"></script>
+
+    <!-- HOME -->
+    <script type="text/javascript" src="js/pages/home/controller.js"></script>
+    <script type="text/javascript" src="js/pages/home/config.js"></script>
+
+    <!-- BOROUGH -->
+    <script type="text/javascript" src="js/pages/borough/controller.js"></script>
+    <script type="text/javascript" src="js/pages/borough/config.js"></script>
+
+    <!-- SERVICES -->
+    <script type="text/javascript" src="js/services/ApiService.js"></script>
+
+</body>
+
+</html>

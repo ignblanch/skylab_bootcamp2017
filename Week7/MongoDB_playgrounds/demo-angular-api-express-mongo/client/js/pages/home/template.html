@@ -1,0 +1,13 @@
+<h1>New York Restaurants</h1>
+<div class="restaurants-container">
+    <div ng-repeat="restaurant in restaurants" class="thumbnail restaurant-card">
+        <div class="caption">
+            <div class='col-lg-12 well well-add-card'>
+                <h4>{{restaurant.name}}</h4>
+            </div>
+            <a ng-href='#!/borough/{{restaurant.borough}}' class="btn btn-primary btn-xs btn-update btn-add-card">{{restaurant.borough}}</a>
+            <button type="button" class="btn btn-danger btn-xs btn-update btn-add-card">{{restaurant.cuisine}}</button>
+
+        </div>
+    </div>
+</div>

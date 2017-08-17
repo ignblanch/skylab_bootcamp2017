@@ -27,4 +27,12 @@
 
 ### SESSION 2
 * Data models - schema [ref](https://skylabcoders.github.io/bootcamp-julio2017/?full#268)
+* Exercise mongo api angular app
+
+### SESSION 3
+* [Mongoose](https://skylabcoders.github.io/bootcamp-julio2017/?full#273)
+    - works with models (schema)that interact with the db - we can define data types, structures, actions to perform outside the default methods of mongo... 
+* Exercise. Move db handlers from mongodb client to mongoose
+* Exercise. Todo app in mongoose
+
 
