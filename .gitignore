@@ -10,3 +10,8 @@ sessions
 
 bower_components
 
+#local files
+*.env
+*.dev
+.DS_Store
+

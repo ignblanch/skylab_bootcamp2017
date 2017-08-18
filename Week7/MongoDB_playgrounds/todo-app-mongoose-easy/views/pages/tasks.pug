@@ -6,21 +6,29 @@ block content
     h1 TODO List
     .container
       form.main-form(action="tasks", method="POST")
-        button(type="button").alldone.btn.btn-lg.btn-success all done
-        input.input-lg(name="title" placeholder="Enter todo" autofocus)
-        button.btn.btn-lg.btn-primary Add TODO
+        button(type="button").alldone.btn.btn-lg.btn-success Complete Select
+        input.input-lg(name="title" placeholder="Enter new task" autofocus)
+        button.btn.btn-lg.btn-primary Add TASK
       if tasks.length===0
         p Congrats! You're all clear
       else
+      //- TODO
+      //- label(for='sel1') Select Action: 
+      //-   select#sel1.form-select
+      //-     option Complete Selection
+      //-     option Delete Selection
+      //- input(type="checkbox")#selectAll 
+      //- span Select All
       ul.list-group.mainList
         each task, i in tasks
-          if !task.done
-            li.list-group-item
-              .container
-                input.edit(style="display:none" type="text" name='edit' value=task.title)
-                input.todoId(style="display:none" type="text" name='edit' value=task._id)
-                button.pull-left.complete.btn.btn-success.btn-lg Complete task
-                button.pull-right.remove.btn.btn-danger.btn-lg Remove task
-                p.list-item #{task.title}
-                p#date created on #{task.createdAt}
-            
+          li.list-group-item
+            .container
+              input.edit(style="display:none" type="text" name='edit' value=task.title)
+              input.todoId(style="display:none" type="text" name='edit' value=task._id)
+              fieldset.pull-left.checkbox
+                input(type="checkbox" name="selectTask" value=task._id)
+              button.pull-left.complete.btn.btn-success.btn-lg Complete task
+              button.pull-right.remove.btn.btn-danger.btn-lg Remove task
+              p.list-item #{task.title}
+              p#date created on #{moment(task.createdAt).format('DD-MM-YY hh:ss')}
+          

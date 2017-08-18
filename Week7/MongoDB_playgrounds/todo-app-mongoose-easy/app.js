@@ -2,6 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const path = require('path')
 const bodyParser = require('body-parser')
+const moment = require('moment')
 
 const app = express()
 
@@ -24,6 +25,8 @@ app.use(bodyParser.json())
 app.use('/tasks', routesTasks)
 app.use('/task', routesTask)
 app.use('/completed', routeCompleted)
+
+app.locals.moment = moment // this makes the variable available from the pug files
 
 app.listen(PORT)
 console.log(`Listening on PORT ${PORT}`)

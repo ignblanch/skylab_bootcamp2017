@@ -35,4 +35,8 @@
 * Exercise. Move db handlers from mongodb client to mongoose
 * Exercise. Todo app in mongoose
 
+### SESSION 4
+* Upload app to production -  [Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction)
+
+
 

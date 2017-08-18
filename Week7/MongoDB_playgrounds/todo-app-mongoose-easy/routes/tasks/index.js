@@ -3,10 +3,10 @@ const router = express.Router()
 
 const addTask = require('./handlers/addTask')
 const getTasks = require('./handlers/getTasks')
-const completeAll = require('./handlers/completeAll')
+const completeSelected = require('./handlers/completeSelected')
 
 router.post('/', addTask)
 router.get('/', getTasks)
-router.put('/', completeAll)
+router.put('/:selection', completeSelected)
 
 module.exports = router
