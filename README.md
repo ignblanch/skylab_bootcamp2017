@@ -10,6 +10,7 @@
 [WEEK 5](./Week5) - NodeJS, ES2015  
 [WEEK 6](./Week6) - Node Express  
 [WEEK 7](./Week7) - MongoDb, Mongoose
+[FINAL PROJECT](#) - *Coming up next...*
 
 
 Here I'll record all activity during my bootcamp at Skylab Coders.
