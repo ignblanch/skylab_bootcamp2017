@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MyApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/bower_components/angular-toastr/dist/angular-toastr.min.css">
+</head>
+<body>
+  <div class="container">
+    <div ng-include="'/app/partials/navBar.html'"></div>
+    <ng-view></ng-view>
+  </div>
+
+  <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="bower_components/angular/angular.min.js"></script>
+  <script src="/bower_components/angular-route/angular-route.min.js"></script>
+  <script src="/bower_components/angular-toastr/dist/angular-toastr.tpls.min.js"></script>
+  <script src="/bower_components/angular-jwt/dist/angular-jwt.min.js"></script>
+
+  <!-- MAIN -->
+  <script src="/app/app.js"></script>
+
+  <!-- SERVICES -->
+  <script src="/app/services/AuthService.js"></script>
+  <script src="/app/services/StorageService.js"></script>
+  <script src="/app/services/ApiService.js"></script>
+  <script src="/app/services/AuthInterceptor.js"></script>
+
+  <!-- CONTROLLERS -->
+  <script src="./app/controllers/NavBarCtrl.js"></script>
+
+  <!-- ROUTES -->
+    <!-- /login -->
+    <script src="/app/routes/login/controller.js"></script>
+    <script src="/app/routes/login/config.js"></script>
+
+    <!-- /register -->
+    <script src="/app/routes/register/controller.js"></script>
+    <script src="/app/routes/register/config.js"></script>
+
+    <!-- /dashboard -->
+    <script src="/app/routes/dashboard/controller.js"></script>
+    <script src="/app/routes/dashboard/config.js"></script>
+
+    <!-- /stats -->
+    <script src="/app/routes/stats/controller.js"></script>
+    <script src="/app/routes/stats/config.js"></script>
+
+</body>
+</html>
